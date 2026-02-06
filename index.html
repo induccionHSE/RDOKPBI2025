@@ -1,1662 +1,1662 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acta Revisión Gerencial SIG 2025 | PBI SAS ESP</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acta Revisión Gerencial SIG 2025 | PBI SAS ESP</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <style>
-        :root {
-            /* COLORES CORPORATIVOS */
-            --primary: #003366;      /* Azul Oscuro Institucional */
-            --secondary: #00509d;    /* Azul Medio */
-            --accent: #f59d2c;    /* Dorado/Amarillo Seguridad */
-            --text-dark: #1e293b;
-            --text-light: #f8fafc;
-            --bg-body: #f1f5f9;
-            --success: #10b981;
-            --danger: #ef4444;
-            --warning: #f59e0b;
-        }
+    <style>
+        :root {
+            /* COLORES CORPORATIVOS */
+            --primary: #003366;      /* Azul Oscuro Institucional */
+            --secondary: #00509d;    /* Azul Medio */
+            --accent: #f59d2c;    /* Dorado/Amarillo Seguridad */
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --bg-body: #f1f5f9;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-dark);
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-        /* --- SIDEBAR DE NAVEGACIÓN --- */
-        .sidebar {
-            width: 320px;
-            background: var(--primary);
-            color: white;
-            display: flex; flex-direction: column;
-            box-shadow: 4px 0 15px rgba(0,0,0,0.1);
-            z-index: 100;
-        }
+        /* --- SIDEBAR DE NAVEGACIÓN --- */
+        .sidebar {
+            width: 320px;
+            background: var(--primary);
+            color: white;
+            display: flex; flex-direction: column;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
 
-        .logo-area {
-            padding: 30px 20px;
-            background: rgba(0,0,0,0.1);
-            text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        /* AQUI VA TU LOGO */
-        .logo-img {
-            max-width: 180px;
-            height: auto;
-            margin-bottom: 10px;
-            background: white;
-            padding: 10px;
-            border-radius: 8px;
-        }
+        .logo-area {
+            padding: 30px 20px;
+            background: rgba(0,0,0,0.1);
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* AQUI VA TU LOGO */
+        .logo-img {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+        }
 
-        .nav-menu {
-            flex: 1;
-            overflow-y: auto;
-            padding: 20px 0;
-        }
+        .nav-menu {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
 
-        .nav-item {
-            padding: 15px 25px;
-            cursor: pointer;
-            transition: 0.3s;
-            border-left: 4px solid transparent;
-            font-size: 14px;
-            display: flex; align-items: center; gap: 10px;
-            color: rgba(255,255,255,0.7);
-        }
-        .nav-item:hover { background: rgba(255,255,255,0.05); color: white; }
-        .nav-item.active {
-            background: rgba(0,0,0,0.2);
-            border-left-color: var(--accent);
-            color: white;
-            font-weight: 700;
-        }
-        .nav-icon { width: 24px; text-align: center; }
+        .nav-item {
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-left: 4px solid transparent;
+            font-size: 14px;
+            display: flex; align-items: center; gap: 10px;
+            color: rgba(255,255,255,0.7);
+        }
+        .nav-item:hover { background: rgba(255,255,255,0.05); color: white; }
+        .nav-item.active {
+            background: rgba(0,0,0,0.2);
+            border-left-color: var(--accent);
+            color: white;
+            font-weight: 700;
+        }
+        .nav-icon { width: 24px; text-align: center; }
 
-        .footer-info {
-            padding: 20px;
-            font-size: 11px;
-            text-align: center;
-            opacity: 0.5;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
+        .footer-info {
+            padding: 20px;
+            font-size: 11px;
+            text-align: center;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
 
-        /* --- CONTENIDO PRINCIPAL --- */
-        .main {
-            flex: 1;
-            padding: 40px;
-            overflow-y: auto;
-            position: relative;
-        }
+        /* --- CONTENIDO PRINCIPAL --- */
+        .main {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+            position: relative;
+        }
 
-        /* Encabezado de Página */
-        .page-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 30px; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px;
-        }
-        .doc-title h1 { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--primary); letter-spacing: 1px; }
-        .doc-title span { font-family: 'Roboto', sans-serif; font-size: 14px; color: #64748b; font-weight: 500; }
-        
-        .status-pill {
-            background: #dcfce7; color: #166534;
-            padding: 8px 16px; border-radius: 20px;
-            font-size: 12px; font-weight: 700;
-            border: 1px solid #bbf7d0; display: flex; align-items: center; gap: 6px;
-        }
+        /* Encabezado de Página */
+        .page-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 30px; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px;
+        }
+        .doc-title h1 { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--primary); letter-spacing: 1px; }
+        .doc-title span { font-family: 'Roboto', sans-serif; font-size: 14px; color: #64748b; font-weight: 500; }
+        
+        .status-pill {
+            background: #dcfce7; color: #166534;
+            padding: 8px 16px; border-radius: 20px;
+            font-size: 12px; font-weight: 700;
+            border: 1px solid #bbf7d0; display: flex; align-items: center; gap: 6px;
+        }
 
-        /* Estilos de Tarjetas y Grid */
-        .section-view { display: none; animation: fadeIn 0.4s ease; }
-        .section-view.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* Estilos de Tarjetas y Grid */
+        .section-view { display: none; animation: fadeIn 0.4s ease; }
+        .section-view.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .grid-container { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; margin-bottom: 20px; }
-        .col-3 { grid-column: span 3; }
-        .col-4 { grid-column: span 4; }
-        .col-5 { grid-column: span 5; }
-        .col-6 { grid-column: span 6; }
-        .col-7 { grid-column: span 7; }
-        .col-8 { grid-column: span 8; }
-        .col-12 { grid-column: span 12; }
+        .grid-container { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; margin-bottom: 20px; }
+        .col-3 { grid-column: span 3; }
+        .col-4 { grid-column: span 4; }
+        .col-5 { grid-column: span 5; }
+        .col-6 { grid-column: span 6; }
+        .col-7 { grid-column: span 7; }
+        .col-8 { grid-column: span 8; }
+        .col-12 { grid-column: span 12; }
 
-        .card {
-            background: white; border-radius: 8px; padding: 25px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0; height: 100%;
-        }
-        .card-title {
-            font-size: 12px; font-weight: 800; text-transform: uppercase; color: #64748b;
-            margin-bottom: 15px; letter-spacing: 0.5px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px;
-        }
+        .card {
+            background: white; border-radius: 8px; padding: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0; height: 100%;
+        }
+        .card-title {
+            font-size: 12px; font-weight: 800; text-transform: uppercase; color: #64748b;
+            margin-bottom: 15px; letter-spacing: 0.5px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px;
+        }
 
-        /* Tablas */
-        .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        .data-table th { text-align: left; padding: 10px; background: #f8fafc; color: #475569; border-bottom: 2px solid #e2e8f0; }
-        .data-table td { padding: 10px; border-bottom: 1px solid #f1f5f9; color: #334155; vertical-align: middle; }
-        .data-table tr:last-child td { border-bottom: none; }
+        /* Tablas */
+        .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .data-table th { text-align: left; padding: 10px; background: #f8fafc; color: #475569; border-bottom: 2px solid #e2e8f0; }
+        .data-table td { padding: 10px; border-bottom: 1px solid #f1f5f9; color: #334155; vertical-align: middle; }
+        .data-table tr:last-child td { border-bottom: none; }
 
-        /* Etiquetas de Estado */
-        .tag { padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; display: inline-block; }
-        .tag-ok { background: #dcfce7; color: #166534; }
-        .tag-warn { background: #fef9c3; color: #854d0e; }
-        .tag-err { background: #fee2e2; color: #991b1b; }
-        .tag-info { background: #e0f2fe; color: #075985; }
+        /* Etiquetas de Estado */
+        .tag { padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; display: inline-block; }
+        .tag-ok { background: #dcfce7; color: #166534; }
+        .tag-warn { background: #fef9c3; color: #854d0e; }
+        .tag-err { background: #fee2e2; color: #991b1b; }
+        .tag-info { background: #e0f2fe; color: #075985; }
 
-        /* Elementos Específicos */
-        .info-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
-        .info-label { font-weight: 600; color: #475569; }
-        
-        .kpi-box { text-align: center; padding: 10px; }
-        .kpi-val { font-size: 36px; font-weight: 900; color: var(--primary); line-height: 1; margin: 5px 0; }
-        .kpi-sub { font-size: 11px; color: #64748b; }
+        /* Elementos Específicos */
+        .info-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+        .info-label { font-weight: 600; color: #475569; }
+        
+        .kpi-box { text-align: center; padding: 10px; }
+        .kpi-val { font-size: 36px; font-weight: 900; color: var(--primary); line-height: 1; margin: 5px 0; }
+        .kpi-sub { font-size: 11px; color: #64748b; }
 
-        .dofa-item { padding: 10px; margin-bottom: 8px; border-radius: 6px; font-size: 12px; }
-        .dofa-green { background: #f0fdf4; border-left: 3px solid var(--success); }
-        .dofa-red { background: #fef2f2; border-left: 3px solid var(--danger); }
+        .dofa-item { padding: 10px; margin-bottom: 8px; border-radius: 6px; font-size: 12px; }
+        .dofa-green { background: #f0fdf4; border-left: 3px solid var(--success); }
+        .dofa-red { background: #fef2f2; border-left: 3px solid var(--danger); }
 
-        /* Firmas */
-        .signature-box { margin-top: 40px; display: flex; justify-content: center; gap: 60px; }
-        .sign-line { border-top: 1px solid #334155; width: 220px; padding-top: 10px; text-align: center; font-size: 12px; font-weight: bold; }
+        /* Firmas */
+        .signature-box { margin-top: 40px; display: flex; justify-content: center; gap: 60px; }
+        .sign-line { border-top: 1px solid #334155; width: 220px; padding-top: 10px; text-align: center; font-size: 12px; font-weight: bold; }
 /* =========================================
-       DISEÑO RESPONSIVO (MÓVIL)
-       ========================================= */
-    @media (max-width: 768px) {
-        
-        /* 1. Cambiar la estructura principal de lado a lado -> vertical */
-        body {
-            flex-direction: column;
-            height: auto; /* Permitir scroll normal */
-            overflow-y: auto;
-        }
+       DISEÑO RESPONSIVO (MÓVIL)
+       ========================================= */
+    @media (max-width: 768px) {
+        
+        /* 1. Cambiar la estructura principal de lado a lado -> vertical */
+        body {
+            flex-direction: column;
+            height: auto; /* Permitir scroll normal */
+            overflow-y: auto;
+        }
 
-        /* 2. Ajustar la barra lateral para que sea un encabezado superior */
-        .sidebar {
-            width: 100%;
-            height: auto;
-            position: relative;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+        /* 2. Ajustar la barra lateral para que sea un encabezado superior */
+        .sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
 
-        /* Hacer el menú navegable horizontalmente con el dedo */
-        .nav-menu {
-            display: flex;
-            overflow-x: auto; /* Scroll horizontal */
-            padding: 10px;
-            white-space: nowrap; /* Que los ítems no se partan */
-            -webkit-overflow-scrolling: touch; /* Suavidad en iPhone */
-        }
+        /* Hacer el menú navegable horizontalmente con el dedo */
+        .nav-menu {
+            display: flex;
+            overflow-x: auto; /* Scroll horizontal */
+            padding: 10px;
+            white-space: nowrap; /* Que los ítems no se partan */
+            -webkit-overflow-scrolling: touch; /* Suavidad en iPhone */
+        }
 
-        .nav-item {
-            padding: 10px 15px;
-            border-left: none;
-            border-bottom: 3px solid transparent; /* Indicador abajo en vez de al lado */
-            font-size: 12px;
-        }
+        .nav-item {
+            padding: 10px 15px;
+            border-left: none;
+            border-bottom: 3px solid transparent; /* Indicador abajo en vez de al lado */
+            font-size: 12px;
+        }
 
-        .nav-item.active {
-            background: rgba(0,0,0,0.2);
-            border-left-color: transparent;
-            border-bottom-color: var(--accent);
-        }
+        .nav-item.active {
+            background: rgba(0,0,0,0.2);
+            border-left-color: transparent;
+            border-bottom-color: var(--accent);
+        }
 
-        /* Ocultar info del footer del sidebar para ahorrar espacio */
-        .footer-info { display: none; }
-        .logo-area { padding: 15px; }
-        .logo-img { max-width: 120px; }
+        /* Ocultar info del footer del sidebar para ahorrar espacio */
+        .footer-info { display: none; }
+        .logo-area { padding: 15px; }
+        .logo-img { max-width: 120px; }
 
-        /* 3. Ajustar el contenedor principal */
-        .main {
-            padding: 15px; /* Menos relleno a los lados */
-            width: 100%;
-            overflow: visible;
-        }
+        /* 3. Ajustar el contenedor principal */
+        .main {
+            padding: 15px; /* Menos relleno a los lados */
+            width: 100%;
+            overflow: visible;
+        }
 
-        /* Encabezado del documento */
-        .page-header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        .doc-title h1 { font-size: 28px; } /* Título más pequeño */
+        /* Encabezado del documento */
+        .page-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        .doc-title h1 { font-size: 28px; } /* Título más pequeño */
 
-        /* 4. ROMPER EL GRID: Que todo ocupe el 100% del ancho */
-        .grid-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        /* Forzar a cualquier columna (col-3, col-6, etc.) a ser ancho completo */
-        [class*="col-"] {
-            width: 100%;
-            grid-column: span 12 !important;
-        }
+        /* 4. ROMPER EL GRID: Que todo ocupe el 100% del ancho */
+        .grid-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        /* Forzar a cualquier columna (col-3, col-6, etc.) a ser ancho completo */
+        [class*="col-"] {
+            width: 100%;
+            grid-column: span 12 !important;
+        }
 
-        /* 5. Manejo de TABLAS en celular (Crucial) */
-        .card {
-            padding: 15px;
-            overflow-x: auto; /* Permite deslizar la tabla si no cabe */
-        }
-        
-        .data-table {
-            min-width: 600px; /* Fuerza un ancho mínimo para que la tabla no se aplaste */
-        }
+        /* 5. Manejo de TABLAS en celular (Crucial) */
+        .card {
+            padding: 15px;
+            overflow-x: auto; /* Permite deslizar la tabla si no cabe */
+        }
+        
+        .data-table {
+            min-width: 600px; /* Fuerza un ancho mínimo para que la tabla no se aplaste */
+        }
 
-        /* 6. Ajustar las firmas */
-        .signature-box {
-            flex-direction: column;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        /* Ajustar gráficas */
-        canvas {
-            max-height: 200px;
-        }
-    }
-    </style>
+        /* 6. Ajustar las firmas */
+        .signature-box {
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        /* Ajustar gráficas */
+        canvas {
+            max-height: 200px;
+        }
+    }
+    </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <div class="logo-area">
-            <img src="https://i.postimg.cc/gkTFBHdt/Logo-PBI.png" alt="Logo PBI" class="logo-img" id="companyLogo">
-            <h3 style="font-size:16px;">PBI S.A.S. ESP</h3>
-            <p style="font-size:11px; opacity:0.7;">Sistema Integrado de Gestión</p>
-        </div>
+    <div class="sidebar">
+        <div class="logo-area">
+            <img src="https://i.postimg.cc/gkTFBHdt/Logo-PBI.png" alt="Logo PBI" class="logo-img" id="companyLogo">
+            <h3 style="font-size:16px;">PBI S.A.S. ESP</h3>
+            <p style="font-size:11px; opacity:0.7;">Sistema Integrado de Gestión</p>
+        </div>
 
-        <div class="nav-menu">
-            <div class="nav-item active" onclick="navigate(1, this)">
-                <div class="nav-icon"><i class="fa-solid fa-circle-info"></i></div> 1. Información General
-            </div>
-            <div class="nav-item" onclick="navigate(2, this)">
-                <div class="nav-icon"><i class="fa-solid fa-tasks"></i></div> 2. Compromisos 2024
-            </div>
-            <div class="nav-item" onclick="navigate(3, this)">
-                <div class="nav-icon"><i class="fa-solid fa-chess"></i></div> 3. Estrategia y Contexto
-            </div>
-            <div class="nav-item" onclick="navigate(4, this)">
-                <div class="nav-icon"><i class="fa-solid fa-industry"></i></div> 4. Entradas Operacionales
-            </div>
-            <div class="nav-item" onclick="navigate(5, this)">
-                <div class="nav-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div> 5. Verificación (Hallazgos)
-            </div>
-            <div class="nav-item" onclick="navigate(6, this)">
-                <div class="nav-icon"><i class="fa-solid fa-file-signature"></i></div> 6. Decisiones (Salidas)
-            </div>
-        </div>
+        <div class="nav-menu">
+            <div class="nav-item active" onclick="navigate(1, this)">
+                <div class="nav-icon"><i class="fa-solid fa-circle-info"></i></div> 1. Información General
+            </div>
+            <div class="nav-item" onclick="navigate(2, this)">
+                <div class="nav-icon"><i class="fa-solid fa-tasks"></i></div> 2. Compromisos 2024
+            </div>
+            <div class="nav-item" onclick="navigate(3, this)">
+                <div class="nav-icon"><i class="fa-solid fa-chess"></i></div> 3. Estrategia y Contexto
+            </div>
+            <div class="nav-item" onclick="navigate(4, this)">
+                <div class="nav-icon"><i class="fa-solid fa-industry"></i></div> 4. Entradas Operacionales
+            </div>
+            <div class="nav-item" onclick="navigate(5, this)">
+                <div class="nav-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div> 5. Verificación (Hallazgos)
+            </div>
+            <div class="nav-item" onclick="navigate(6, this)">
+                <div class="nav-icon"><i class="fa-solid fa-file-signature"></i></div> 6. Decisiones (Salidas)
+            </div>
+        </div>
 
-        <div class="footer-info">
-            Código: FOR-GER-02<br>
-            Versión: 2025<br>
-            Elaboración: 26/01/2026
-        </div>
-    </div>
+        <div class="footer-info">
+            Código: FOR-GER-02<br>
+            Versión: 2025<br>
+            Elaboración: 26/01/2026
+        </div>
+    </div>
 
-    <div class="main">
-       <div class="page-header">
-    <div class="doc-title">
-        <h1>Acta de Revisión Gerencial</h1>
-        <span>Evaluación del Periodo: Enero 2025 – Diciembre 2025</span>
-    </div>
-    
-    <div style="display:flex; gap:10px; align-items:center;">
-        <div class="status-pill"><i class="fa-solid fa-check"></i> ESTADO: FINALIZADA</div>
-        
-        <a href="https://docs.google.com/document/d/1C4wzN5Sod4KkGBQLh_dnvWYG6yrwqxFcXntGLGCA12g/edit?usp=sharing" target="_blank" style="text-decoration:none;">
-            <button style="background:var(--danger); color:white; border:none; padding:10px 20px; border-radius:20px; cursor:pointer; font-weight:bold; display:flex; align-items:center; gap:8px; box-shadow:0 4px 6px rgba(239, 68, 68, 0.3);">
-                <i class="fa-solid fa-file-pdf"></i> Ver Acta revisión PDF
-            </button>
-        </a>
-    </div>
+    <div class="main">
+       <div class="page-header">
+    <div class="doc-title">
+        <h1>Acta de Revisión Gerencial</h1>
+        <span>Evaluación del Periodo: Enero 2025 – Diciembre 2025</span>
+    </div>
+    
+    <div style="display:flex; gap:10px; align-items:center;">
+        <div class="status-pill"><i class="fa-solid fa-check"></i> ESTADO: FINALIZADA</div>
+        
+        <a href="https://docs.google.com/document/d/1C4wzN5Sod4KkGBQLh_dnvWYG6yrwqxFcXntGLGCA12g/edit?usp=sharing" target="_blank" style="text-decoration:none;">
+            <button style="background:var(--danger); color:white; border:none; padding:10px 20px; border-radius:20px; cursor:pointer; font-weight:bold; display:flex; align-items:center; gap:8px; box-shadow:0 4px 6px rgba(239, 68, 68, 0.3);">
+                <i class="fa-solid fa-file-pdf"></i> Ver Acta revisión PDF
+            </button>
+        </a>
+    </div>
 </div>
 
-        <div id="sec1" class="section-view active">
-            <div class="grid-container">
-                <div class="card col-12">
-                    <div class="card-title">1. INFORMACIÓN GENERAL DE LA REVISIÓN</div>
-                    <div class="grid-container">
-                        <div class="col-4">
-                            <div class="info-row"><span class="info-label">Fecha:</span> 30/01/2026</div>
-                            <div class="info-row"><span class="info-label">Hora:</span> 8:00 am – 10:00 am</div>
-                            <div class="info-row"><span class="info-label">Lugar:</span> Sala de Juntas Administración Bogotá</div>
-                            <div class="info-row"><span class="info-label">Ciudad:</span> Bogotá D.C.</div>
-                        </div>
-                        <div class="col-4">
-                            <div class="info-label" style="margin-bottom:5px;">Asistentes:</div>
-                            <ul style="font-size:13px; padding-left:20px; line-height:1.6;">
-                                <li>Luis Eduardo Henriquez (Gerente General)</li>
-                                <li>Carlos Esteban (Director HSEQ)</li>
-                                <li>Holman Moreno (Coordinador HSEQ)</li>
-                            </ul>
-                        </div>
-                        <div class="col-4">
-                            <div class="info-label" style="margin-bottom:5px;">Propósito:</div>
-                            <p style="font-size:13px; color:#334155;">Verificar la conveniencia, adecuación, eficacia y alineación estratégica del Sistema Integrado de Gestión (ISO 9001, ISO 14001, ISO 45001, Dec. 1072, PESV).</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div id="sec1" class="section-view active">
+            <div class="grid-container">
+                <div class="card col-12">
+                    <div class="card-title">1. INFORMACIÓN GENERAL DE LA REVISIÓN</div>
+                    <div class="grid-container">
+                        <div class="col-4">
+                            <div class="info-row"><span class="info-label">Fecha:</span> 30/01/2026</div>
+                            <div class="info-row"><span class="info-label">Hora:</span> 8:00 am – 10:00 am</div>
+                            <div class="info-row"><span class="info-label">Lugar:</span> Sala de Juntas Administración Bogotá</div>
+                            <div class="info-row"><span class="info-label">Ciudad:</span> Bogotá D.C.</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="info-label" style="margin-bottom:5px;">Asistentes:</div>
+                            <ul style="font-size:13px; padding-left:20px; line-height:1.6;">
+                                <li>Luis Eduardo Henriquez (Gerente General)</li>
+                                <li>Carlos Esteban (Director HSEQ)</li>
+                                <li>Holman Moreno (Coordinador HSEQ)</li>
+                            </ul>
+                        </div>
+                        <div class="col-4">
+                            <div class="info-label" style="margin-bottom:5px;">Propósito:</div>
+                            <p style="font-size:13px; color:#334155;">Verificar la conveniencia, adecuación, eficacia y alineación estratégica del Sistema Integrado de Gestión (ISO 9001, ISO 14001, ISO 45001, Dec. 1072, PESV).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <div id="sec2" class="section-view">
-            <div class="card">
-                <div class="card-title">2. SEGUIMIENTO A COMPROMISOS PREVIOS (2024)</div>
-                <p style="font-size:12px; margin-bottom:15px; color:#64748b;"><strong>Referencia:</strong> Numeral 9.3 (c) ISO 9001/14001/45001</p>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Compromiso / Actividad</th>
-                            <th>Responsable</th>
-                            <th>Estado 2025</th>
-                            <th>Eficacia</th>
-                            <th>Observaciones / Gestión del Cambio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Certificación ISO 50001 (Diagnóstico)</td>
-                            <td>Dir. HSEQ</td>
-                            <td><span class="tag tag-err">NO INICIADO</span></td>
-                            <td>N/A</td>
-                            <td>Se reprograma o reevalúa su pertinencia para el siguiente periodo.</td>
-                        </tr>
-                        <tr>
-                            <td>Incorporar proceso financiero al SIG</td>
-                            <td>Dir. HSEQ</td>
-                            <td><span class="tag tag-warn">EN PROCESO</span></td>
-                            <td>Pendiente</td>
-                            <td>Se continúa trabajando en la alineación de procedimientos.</td>
-                        </tr>
-                        <tr>
-                            <td>Software ISOLUCION</td>
-                            <td>Dir. HSEQ</td>
-                            <td><span class="tag tag-ok">EJECUTADO</span></td>
-                            <td>SÍ</td>
-                            <td><strong>Gestión del Cambio:</strong> Se desestimó ISOLUCION. Se implementó automatización interna mediante Appscript y Google, optimizando costos y adaptabilidad.</td>
-                        </tr>
-                        <tr>
-                            <td>Actualización Documental</td>
-                            <td>Líderes</td>
-                            <td><span class="tag tag-warn">EN PROCESO</span></td>
-                            <td>Parcial</td>
-                            <td>Se mantiene como actividad permanente del SIG.</td>
-                        </tr>
-                        <tr>
-                            <td>Cultura HSEQ (Incentivar participación)</td>
-                            <td>Dir. HSEQ</td>
-                            <td><span class="tag tag-warn">EN PROCESO</span></td>
-                            <td>Parcial</td>
-                            <td>Se requieren nuevas estrategias para 2026 (Ver Análisis de Participación).</td>
-                        </tr>
-                        <tr>
-                            <td>Dashboards/KPIs (Mejorar visualización)</td>
-                            <td>Área HSEQ</td>
-                            <td><span class="tag tag-ok">EJECUTADO</span></td>
-                            <td>SÍ</td>
-                            <td>Se cuenta con paneles de control que facilitan la toma de decisiones.</td>
-                        </tr>
-                        <tr>
-                            <td>Visitas Gerenciales 360°</td>
-                            <td>Gerencia</td>
-                            <td><span class="tag tag-warn">EN PROCESO</span></td>
-                            <td>Pendiente</td>
-                            <td>Se realizaron visitas parciales; se busca fortalecer el cronograma para 2026.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        <div id="sec2" class="section-view">
+            <div class="card">
+                <div class="card-title">2. SEGUIMIENTO A COMPROMISOS PREVIOS (2024)</div>
+                <p style="font-size:12px; margin-bottom:15px; color:#64748b;"><strong>Referencia:</strong> Numeral 9.3 (c) ISO 9001/14001/45001</p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Compromiso / Actividad</th>
+                            <th>Responsable</th>
+                            <th>Estado 2025</th>
+                            <th>Eficacia</th>
+                            <th>Observaciones / Gestión del Cambio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Certificación ISO 50001 (Diagnóstico)</td>
+                            <td>Dir. HSEQ</td>
+                            <td><span class="tag tag-err">NO INICIADO</span></td>
+                            <td>N/A</td>
+                            <td>Se reprograma o reevalúa su pertinencia para el siguiente periodo.</td>
+                        </tr>
+                        <tr>
+                            <td>Incorporar proceso financiero al SIG</td>
+                            <td>Dir. HSEQ</td>
+                            <td><span class="tag tag-warn">EN PROCESO</span></td>
+                            <td>Pendiente</td>
+                            <td>Se continúa trabajando en la alineación de procedimientos.</td>
+                        </tr>
+                        <tr>
+                            <td>Software ISOLUCION</td>
+                            <td>Dir. HSEQ</td>
+                            <td><span class="tag tag-ok">EJECUTADO</span></td>
+                            <td>SÍ</td>
+                            <td><strong>Gestión del Cambio:</strong> Se desestimó ISOLUCION. Se implementó automatización interna mediante Appscript y Google, optimizando costos y adaptabilidad.</td>
+                        </tr>
+                        <tr>
+                            <td>Actualización Documental</td>
+                            <td>Líderes</td>
+                            <td><span class="tag tag-warn">EN PROCESO</span></td>
+                            <td>Parcial</td>
+                            <td>Se mantiene como actividad permanente del SIG.</td>
+                        </tr>
+                        <tr>
+                            <td>Cultura HSEQ (Incentivar participación)</td>
+                            <td>Dir. HSEQ</td>
+                            <td><span class="tag tag-warn">EN PROCESO</span></td>
+                            <td>Parcial</td>
+                            <td>Se requieren nuevas estrategias para 2026 (Ver Análisis de Participación).</td>
+                        </tr>
+                        <tr>
+                            <td>Dashboards/KPIs (Mejorar visualización)</td>
+                            <td>Área HSEQ</td>
+                            <td><span class="tag tag-ok">EJECUTADO</span></td>
+                            <td>SÍ</td>
+                            <td>Se cuenta con paneles de control que facilitan la toma de decisiones.</td>
+                        </tr>
+                        <tr>
+                            <td>Visitas Gerenciales 360°</td>
+                            <td>Gerencia</td>
+                            <td><span class="tag tag-warn">EN PROCESO</span></td>
+                            <td>Pendiente</td>
+                            <td>Se realizaron visitas parciales; se busca fortalecer el cronograma para 2026.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-     <div id="sec3" class="section-view">
-    <div class="grid-container">
-        <div class="card col-12">
-            <div class="card-title">3. ENTRADAS ESTRATÉGICAS: PLANIFICACIÓN Y CONTEXTO</div>
-            <p style="font-size:12px; margin-bottom:15px; color:#64748b;"><strong>Referencia:</strong> ISO 9001 (9.3.2 b), ISO 14001 (9.3 b), ISO 45001 (9.3 b)</p>
-        </div>
-        
-        <div class="card col-6">
-            <div class="card-title">3.1 CONTEXTO (DOFA SEPTIEMBRE 2025)</div>
-            <div class="dofa-item dofa-green">
-                <strong>FORTALEZAS:</strong> Liderazgo en Transformación Digital (uso de IA y automatización en HSEQ), Resiliencia operativa ante crisis, Sistema de gestión maduro y certificado.
-            </div>
-            <div class="dofa-item dofa-green">
-                <strong>OPORTUNIDADES:</strong> Crecimiento en incentivos para Transición Energética y ESG (gas/solar), Apertura de mercados regionales (Andina), Acceso a tecnologías de monitoreo remoto.
-            </div>
-            <div class="dofa-item dofa-red">
-                <strong>DEBILIDADES:</strong> Restricciones de flujo de caja para inversiones, Dependencia operativa de pozos maduros sin BCP documentado, Brechas en competencias digitales avanzadas.
-            </div>
-            <div class="dofa-item dofa-red">
-                <strong>AMENAZAS:</strong> Alta volatilidad macroeconómica (TRM, inflación), Riesgo recurrente de bloqueos sociales, Declinación natural de pozos y nuevas exigencias regulatorias ambientales.
-            </div>
-        </div>
-        
-        <div class="card col-12" style="border-left: 4px solid #16a34a;">
-            <div class="card-title" style="color:#16a34a;">
-                <i class="fa-solid fa-earth-americas"></i> DECLARACIÓN SOBRE CAMBIO CLIMÁTICO (Enmienda ISO 2024)
-            </div>
-            <div class="grid-container">
-                <div class="col-8">
-                    <p style="font-size:13px; color:#334155;">
-                        La Gerencia determina que el Cambio Climático <strong>ES PERTINENTE</strong> para el SGC/SGA/SGSST. No se aborda como un sistema separado, sino integrado a la estrategia de negocio:
-                    </p>
-                    <ul style="font-size:12px; margin-top:10px; padding-left:20px; line-height:1.6;">
-                        <li><strong>Pertinencia Operativa:</strong> Protección de activos en zonas inundables (Tales como Sinú 9 y la Planta Buenavista).</li>
-                        <li><strong>Pertinencia Legal:</strong> Cumplimiento de metas de descarbonización y reportes a autoridades.</li>
-                        <li><strong>Pertinencia de Mercado:</strong> Alineación con la "Transición Energética" (Oportunidad DOFA).</li>
-                    </ul>
-                </div>
-                <div class="col-4" style="text-align:center; display:flex; align-items:center; justify-content:center;">
-                    <div style="background:#f0fdf4; padding:15px; border-radius:8px;">
-                        <strong style="font-size:14px; color:#16a34a;">ESTADO: GESTIONADO</strong>
-                        <br><span style="font-size:11px; color:#64748b;">Ver Matriz de Riesgos y Plan de Emergencias</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+     <div id="sec3" class="section-view">
+    <div class="grid-container">
+        <div class="card col-12">
+            <div class="card-title">3. ENTRADAS ESTRATÉGICAS: PLANIFICACIÓN Y CONTEXTO</div>
+            <p style="font-size:12px; margin-bottom:15px; color:#64748b;"><strong>Referencia:</strong> ISO 9001 (9.3.2 b), ISO 14001 (9.3 b), ISO 45001 (9.3 b)</p>
+        </div>
+        
+        <div class="card col-6">
+            <div class="card-title">3.1 CONTEXTO (DOFA SEPTIEMBRE 2025)</div>
+            <div class="dofa-item dofa-green">
+                <strong>FORTALEZAS:</strong> Liderazgo en Transformación Digital (uso de IA y automatización en HSEQ), Resiliencia operativa ante crisis, Sistema de gestión maduro y certificado.
+            </div>
+            <div class="dofa-item dofa-green">
+                <strong>OPORTUNIDADES:</strong> Crecimiento en incentivos para Transición Energética y ESG (gas/solar), Apertura de mercados regionales (Andina), Acceso a tecnologías de monitoreo remoto.
+            </div>
+            <div class="dofa-item dofa-red">
+                <strong>DEBILIDADES:</strong> Restricciones de flujo de caja para inversiones, Dependencia operativa de pozos maduros sin BCP documentado, Brechas en competencias digitales avanzadas.
+            </div>
+            <div class="dofa-item dofa-red">
+                <strong>AMENAZAS:</strong> Alta volatilidad macroeconómica (TRM, inflación), Riesgo recurrente de bloqueos sociales, Declinación natural de pozos y nuevas exigencias regulatorias ambientales.
+            </div>
+        </div>
+        
+        <div class="card col-12" style="border-left: 4px solid #16a34a;">
+            <div class="card-title" style="color:#16a34a;">
+                <i class="fa-solid fa-earth-americas"></i> DECLARACIÓN SOBRE CAMBIO CLIMÁTICO (Enmienda ISO 2024)
+            </div>
+            <div class="grid-container">
+                <div class="col-8">
+                    <p style="font-size:13px; color:#334155;">
+                        La Gerencia determina que el Cambio Climático <strong>ES PERTINENTE</strong> para el SGC/SGA/SGSST. No se aborda como un sistema separado, sino integrado a la estrategia de negocio:
+                    </p>
+                    <ul style="font-size:12px; margin-top:10px; padding-left:20px; line-height:1.6;">
+                        <li><strong>Pertinencia Operativa:</strong> Protección de activos en zonas inundables (Sinú 9).</li>
+                        <li><strong>Pertinencia Legal:</strong> Cumplimiento de metas de descarbonización y reportes a autoridades.</li>
+                        <li><strong>Pertinencia de Mercado:</strong> Alineación con la "Transición Energética" (Oportunidad DOFA).</li>
+                    </ul>
+                </div>
+                <div class="col-4" style="text-align:center; display:flex; align-items:center; justify-content:center;">
+                    <div style="background:#f0fdf4; padding:15px; border-radius:8px;">
+                        <strong style="font-size:14px; color:#16a34a;">ESTADO: GESTIONADO</strong>
+                        <br><span style="font-size:11px; color:#64748b;">Ver Matriz de Riesgos y Plan de Emergencias</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                <div class="card col-6">
-    <div class="card-title">3.2 NECESIDADES Y EXPECTATIVAS PRIORIZADAS (ISO 4.2)</div>
-    
-    <p style="font-size:12px; margin-bottom:10px; color:#64748b;">
-        Asuntos materiales derivados de la Matriz de Partes Interesadas (Fuente: FOR-HSEQ- /Informe GRI ):
-    </p>
-    
-    <div style="background:#f0fdf4; padding:10px; border-left:3px solid var(--success); margin-bottom:8px;">
-        <strong style="font-size:11px; color:#14532d;">AMBIENTAL (Licencia Operativa)</strong>
-        <ul style="font-size:11px; margin-top:5px; padding-left:15px; margin-bottom:0; line-height:1.4;">
-            <li>Control de impactos (Ruido/Polvo) y atención a comunidades.</li>
-            <li>Cumplimiento estricto normatividad ANLA.</li>
-            <li>Gestión de residuos y economía circular.</li>
-        </ul>
-    </div>
+                <div class="card col-6">
+    <div class="card-title">3.2 NECESIDADES Y EXPECTATIVAS PRIORIZADAS (ISO 4.2)</div>
+    
+    <p style="font-size:12px; margin-bottom:10px; color:#64748b;">
+        Asuntos materiales derivados de la Matriz de Partes Interesadas (Fuente: FOR-HSEQ- /Informe GRI ):
+    </p>
+    
+    <div style="background:#f0fdf4; padding:10px; border-left:3px solid var(--success); margin-bottom:8px;">
+        <strong style="font-size:11px; color:#14532d;">AMBIENTAL (Licencia Operativa)</strong>
+        <ul style="font-size:11px; margin-top:5px; padding-left:15px; margin-bottom:0; line-height:1.4;">
+            <li>Control de impactos (Ruido/Polvo) y atención a comunidades.</li>
+            <li>Cumplimiento estricto normatividad ANLA.</li>
+            <li>Gestión de residuos y economía circular.</li>
+        </ul>
+    </div>
 
-    <div style="background:#eff6ff; padding:10px; border-left:3px solid var(--secondary); margin-bottom:8px;">
-        <strong style="font-size:11px; color:#1e3a8a;">SOCIAL (Laboral y DDHH)</strong>
-        <ul style="font-size:11px; margin-top:5px; padding-left:15px; margin-bottom:0; line-height:1.4;">
-            <li>Prevención de accidentes y recursos COPASST.</li>
-            <li>Clima laboral, salud mental y prevención de acoso.</li>
-            <li>Empleo local y relacionamiento vecinal.</li>
-        </ul>
-    </div>
+    <div style="background:#eff6ff; padding:10px; border-left:3px solid var(--secondary); margin-bottom:8px;">
+        <strong style="font-size:11px; color:#1e3a8a;">SOCIAL (Laboral y DDHH)</strong>
+        <ul style="font-size:11px; margin-top:5px; padding-left:15px; margin-bottom:0; line-height:1.4;">
+            <li>Prevención de accidentes y recursos COPASST.</li>
+            <li>Clima laboral, salud mental y prevención de acoso.</li>
+            <li>Empleo local y relacionamiento vecinal.</li>
+        </ul>
+    </div>
 
-    <div style="background:#fef9c3; padding:10px; border-left:3px solid var(--warning);">
-        <strong style="font-size:11px; color:#854d0e;">GOBERNANZA Y ECONÓMICO</strong>
-        <ul style="font-size:11px; margin-top:5px; padding-left:15px; margin-bottom:0; line-height:1.4;">
-            <li>Rentabilidad, transparencia y ética (Accionistas).</li>
-            <li>Solvencia y gestión de riesgos ESG (Bancos).</li>
-            <li>Cadena de suministro segura (Proveedores).</li>
-        </ul>
-    </div>
+    <div style="background:#fef9c3; padding:10px; border-left:3px solid var(--warning);">
+        <strong style="font-size:11px; color:#854d0e;">GOBERNANZA Y ECONÓMICO</strong>
+        <ul style="font-size:11px; margin-top:5px; padding-left:15px; margin-bottom:0; line-height:1.4;">
+            <li>Rentabilidad, transparencia y ética (Accionistas).</li>
+            <li>Solvencia y gestión de riesgos ESG (Bancos).</li>
+            <li>Cadena de suministro segura (Proveedores).</li>
+        </ul>
+    </div>
 </div>
-                <div class="card col-6">
-                    <div class="card-title">3.3 GESTIÓN DE RIESGOS Y OPORTUNIDADES</div>
-                    
-                    <div class="grid-container">
-                        <div class="col-5" style="position: relative; height: 160px;">
-                            <canvas id="chartRiesgos"></canvas>
-                        </div>
+                <div class="card col-6">
+                    <div class="card-title">3.3 GESTIÓN DE RIESGOS Y OPORTUNIDADES</div>
+                    
+                    <div class="grid-container">
+                        <div class="col-5" style="position: relative; height: 160px;">
+                            <canvas id="chartRiesgos"></canvas>
+                        </div>
 
-                        <div class="col-7">
-                            <h4 style="font-size:12px; color:#1e293b; margin-bottom:5px;">
-                                <i class="fa-solid fa-shield-halved" style="color:var(--success)"></i> EFICACIA DE CONTROLES
-                            </h4>
-                            <p style="font-size:11px; color:#334155; line-height:1.4;">
-                                Se gestionaron <strong>78 riesgos</strong> en 10 procesos corporativos.
-                                <br><br>
-                                <strong>Estado:</strong> Los controles para los <strong>4 Riesgos Extremos</strong> (Social, HSEQ y Cadena de Suministro) fueron eficaces. No se materializaron eventos catastróficos ni paradas no programadas.
-                            </p>
-                        </div>
-                    </div>
+                        <div class="col-7">
+                            <h4 style="font-size:12px; color:#1e293b; margin-bottom:5px;">
+                                <i class="fa-solid fa-shield-halved" style="color:var(--success)"></i> EFICACIA DE CONTROLES
+                            </h4>
+                            <p style="font-size:11px; color:#334155; line-height:1.4;">
+                                Se gestionaron <strong>78 riesgos</strong> en 10 procesos corporativos.
+                                <br><br>
+                                <strong>Estado:</strong> Los controles para los <strong>4 Riesgos Extremos</strong> (Social, HSEQ y Cadena de Suministro) fueron eficaces. No se materializaron eventos catastróficos ni paradas no programadas.
+                            </p>
+                        </div>
+                    </div>
 
-                    <div style="margin-top:10px; padding-top:10px; border-top:1px solid #e2e8f0;">
-                        <h4 style="font-size:12px; color:#1e293b; margin-bottom:5px;">
-                            <i class="fa-solid fa-chart-line" style="color:var(--secondary)"></i> OPORTUNIDADES
-                        </h4>
-                        <p style="font-size:11px; color:#334155;">
-                            Se capitalizó la <strong>Transformación Digital en el proceso HSEQ</strong> (Implementación AppScript para control en campo) y la <strong>Gestión Social Preventiva</strong>.
-                        </p>
-                    </div>
-                </div>
+                    <div style="margin-top:10px; padding-top:10px; border-top:1px solid #e2e8f0;">
+                        <h4 style="font-size:12px; color:#1e293b; margin-bottom:5px;">
+                            <i class="fa-solid fa-chart-line" style="color:var(--secondary)"></i> OPORTUNIDADES
+                        </h4>
+                        <p style="font-size:11px; color:#334155;">
+                            Se capitalizó la <strong>Transformación Digital en el proceso HSEQ</strong> (Implementación AppScript para control en campo) y la <strong>Gestión Social Preventiva</strong>.
+                        </p>
+                    </div>
+                </div>
 
-                <div class="card col-6">
-                    <div class="card-title">3.4 CUMPLIMIENTO DE OBJETIVOS SIG</div>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Objetivo del SIG</th>
-                                <th>Meta</th>
-                                <th>Resultado</th>
-                                <th>Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Competencia del Personal</td>
-                                <td>&gt;90%</td>
-                                <td>Pendiente GH</td>
-                                <td><span class="tag tag-info">EN ANÁLISIS</span></td>
-                            </tr>
-                            <tr>
-                                <td>Prevención SST (IF)</td>
-                                <td>&lt; 1.0</td>
-                                <td>0.00</td>
-                                <td><span class="tag tag-ok">CUMPLE</span></td>
-                            </tr>
-                            <tr>
-                                <td>Ambiental</td>
-                                <td>100%</td>
-                                <td>Pendiente</td>
-                                <td><span class="tag tag-info">EN ANÁLISIS</span></td>
-                            </tr>
-                            <tr>
-                                <td>Proveedores</td>
-                                <td>&gt;90%</td>
-                                <td>Pendiente</td>
-                                <td><span class="tag tag-info">EN ANÁLISIS</span></td>
-                            </tr>
-                            <tr>
-                                <td>Satisfacción Cliente</td>
-                                <td>&gt;85%</td>
-                                <td>86%</td>
-                                <td><span class="tag tag-ok">CUMPLE</span></td>
-                            </tr>
-                            <tr>
-                                <td>Cumplimiento Legal</td>
-                                <td>100%</td>
-                                <td>100%</td>
-                                <td><span class="tag tag-ok">CUMPLE</span></td>
-                            </tr>
-                            <tr>
-                                <td>Gestión de Peligros</td>
-                                <td>100%</td>
-                                <td>100%</td>
-                                <td><span class="tag tag-ok">CUMPLE</span></td>
-                            </tr>
-                            <tr>
-                                <td>Mejora Continua</td>
-                                <td>&gt;90%</td>
-                                <td>85%</td>
-                                <td><span class="tag tag-err">NO CUMPLE</span></td>
-                            </tr>
-                            <tr>
-                                <td>Riesgos Corporativos</td>
-                                <td>100%</td>
-                                <td>100%</td>
-                                <td><span class="tag tag-ok">CUMPLE</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+                <div class="card col-6">
+                    <div class="card-title">3.4 CUMPLIMIENTO DE OBJETIVOS SIG</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Objetivo del SIG</th>
+                                <th>Meta</th>
+                                <th>Resultado</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Competencia del Personal</td>
+                                <td>&gt;90%</td>
+                                <td>Pendiente GH</td>
+                                <td><span class="tag tag-info">EN ANÁLISIS</span></td>
+                            </tr>
+                            <tr>
+                                <td>Prevención SST (IF)</td>
+                                <td>&lt; 1.0</td>
+                                <td>0.00</td>
+                                <td><span class="tag tag-ok">CUMPLE</span></td>
+                            </tr>
+                            <tr>
+                                <td>Ambiental</td>
+                                <td>100%</td>
+                                <td>Pendiente</td>
+                                <td><span class="tag tag-info">EN ANÁLISIS</span></td>
+                            </tr>
+                            <tr>
+                                <td>Proveedores</td>
+                                <td>&gt;90%</td>
+                                <td>Pendiente</td>
+                                <td><span class="tag tag-info">EN ANÁLISIS</span></td>
+                            </tr>
+                            <tr>
+                                <td>Satisfacción Cliente</td>
+                                <td>&gt;85%</td>
+                                <td>86%</td>
+                                <td><span class="tag tag-ok">CUMPLE</span></td>
+                            </tr>
+                            <tr>
+                                <td>Cumplimiento Legal</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                                <td><span class="tag tag-ok">CUMPLE</span></td>
+                            </tr>
+                            <tr>
+                                <td>Gestión de Peligros</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                                <td><span class="tag tag-ok">CUMPLE</span></td>
+                            </tr>
+                            <tr>
+                                <td>Mejora Continua</td>
+                                <td>&gt;90%</td>
+                                <td>85%</td>
+                                <td><span class="tag tag-err">NO CUMPLE</span></td>
+                            </tr>
+                            <tr>
+                                <td>Riesgos Corporativos</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                                <td><span class="tag tag-ok">CUMPLE</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-        <div id="sec4" class="section-view">
-            <div class="grid-container">
-                <div class="card col-12">
-                    <div class="card-title">4. ENTRADAS OPERACIONALES: DESEMPEÑO DE LOS PROCESOS</div>
-                    <p style="font-size:12px; color:#64748b;"><strong>Referencia:</strong> ISO 9001 (9.3.2 c), ISO 14001 (9.3 d), Dec. 1072 (Art 2.2.4.6.31)</p>
-                </div>
+        <div id="sec4" class="section-view">
+            <div class="grid-container">
+                <div class="card col-12">
+                    <div class="card-title">4. ENTRADAS OPERACIONALES: DESEMPEÑO DE LOS PROCESOS</div>
+                    <p style="font-size:12px; color:#64748b;"><strong>Referencia:</strong> ISO 9001 (9.3.2 c), ISO 14001 (9.3 d), Dec. 1072 (Art 2.2.4.6.31)</p>
+                </div>
 
-                <div class="card col-8">
-                    <div class="card-title">4.1 DESEMPEÑO COMERCIAL Y SATISFACCIÓN DEL CLIENTE</div>
-                    <div class="grid-container">
-                        <div class="col-6">
-                            <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">Indicadores Cuantitativos</h4>
-                            <table class="data-table">
-                                <tr>
-                                    <td><strong>Satisfacción Global</strong></td>
-                                    <td><span class="tag tag-ok">4.3 / 5.0</span></td>
-                                    <td>SOBRESALIENTE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Amabilidad y Servicio</strong></td>
-                                    <td><span class="tag tag-ok">4.4 / 5.0</span></td>
-                                    <td>SOBRESALIENTE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>HSEQ Percibido</strong></td>
-                                    <td><span class="tag tag-ok">100%</span></td>
-                                    <td>CUMPLIMIENTO TOTAL</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="col-6">
-                            <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">Gestión de PQRS</h4>
-                            <div class="kpi-box">
-                                <div class="kpi-sub">QUEJAS GRAVES</div>
-                                <div class="kpi-val" style="color:var(--success)">0</div>
-                            </div>
-                            <div class="kpi-box">
-                                <div class="kpi-sub">RECLAMOS</div>
-                                <div class="kpi-val" style="color:var(--success)">0</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="card col-8">
+                    <div class="card-title">4.1 DESEMPEÑO COMERCIAL Y SATISFACCIÓN DEL CLIENTE</div>
+                    <div class="grid-container">
+                        <div class="col-6">
+                            <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">Indicadores Cuantitativos</h4>
+                            <table class="data-table">
+                                <tr>
+                                    <td><strong>Satisfacción Global</strong></td>
+                                    <td><span class="tag tag-ok">4.3 / 5.0</span></td>
+                                    <td>SOBRESALIENTE</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Amabilidad y Servicio</strong></td>
+                                    <td><span class="tag tag-ok">4.4 / 5.0</span></td>
+                                    <td>SOBRESALIENTE</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>HSEQ Percibido</strong></td>
+                                    <td><span class="tag tag-ok">100%</span></td>
+                                    <td>CUMPLIMIENTO TOTAL</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-6">
+                            <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">Gestión de PQRS</h4>
+                            <div class="kpi-box">
+                                <div class="kpi-sub">QUEJAS GRAVES</div>
+                                <div class="kpi-val" style="color:var(--success)">0</div>
+                            </div>
+                            <div class="kpi-box">
+                                <div class="kpi-sub">RECLAMOS</div>
+                                <div class="kpi-val" style="color:var(--success)">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="card col-4">
-                    <div class="card-title">VOZ DEL CLIENTE</div>
-                    <div style="background:#fef9c3; padding:10px; border-left:3px solid #eab308; margin-bottom:10px;">
-                        <strong style="font-size:11px; color:#854d0e;">OPORTUNIDAD: INFRAES</strong>
-                        <p style="font-size:12px; margin-top:5px;">Necesidad de migrar hacia Mantenimiento Predictivo y mejorar la gestión de inventarios (repuestos).</p>
-                    </div>
-                    <div style="background:#f0fdf4; padding:10px; border-left:3px solid #16a34a;">
-                        <strong style="font-size:11px; color:#14532d;">FORTALEZAS</strong>
-                        <p style="font-size:12px; margin-top:5px;">Capacidad de respuesta, seguridad operativa (0 Accidentes) y cumplimiento de estándares técnicos.</p>
-                    </div>
-                </div>
+                <div class="card col-4">
+                    <div class="card-title">VOZ DEL CLIENTE</div>
+                    <div style="background:#fef9c3; padding:10px; border-left:3px solid #eab308; margin-bottom:10px;">
+                        <strong style="font-size:11px; color:#854d0e;">OPORTUNIDAD: INFRAES</strong>
+                        <p style="font-size:12px; margin-top:5px;">Necesidad de migrar hacia Mantenimiento Predictivo y mejorar la gestión de inventarios (repuestos).</p>
+                    </div>
+                    <div style="background:#f0fdf4; padding:10px; border-left:3px solid #16a34a;">
+                        <strong style="font-size:11px; color:#14532d;">FORTALEZAS</strong>
+                        <p style="font-size:12px; margin-top:5px;">Capacidad de respuesta, seguridad operativa (0 Accidentes) y cumplimiento de estándares técnicos.</p>
+                    </div>
+                </div>
 
-                <div class="card col-6">
-                    <div class="card-title">4.2 GESTIÓN DE COMPRAS Y PROVEEDORES</div>
-                    <div class="info-row">
-                        <span class="info-label">Total Evaluados 2024:</span> 39
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">Estimado Evaluados 2025:</span> 20
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">Calificación Promedio:</span> <span class="tag tag-ok">~95%</span>
-                    </div>
-                    <p style="font-size:12px; margin-top:10px; background:#f8fafc; padding:10px; border-radius:4px;">
-                        <strong>Conclusión:</strong> No se registraron proveedores con calificación deficiente (0-79) que afectaran la operación. No se establecieron planes de mejora.
-                    </p>
-                </div>
+                <div class="card col-6">
+                    <div class="card-title">4.2 GESTIÓN DE COMPRAS Y PROVEEDORES</div>
+                    <div class="info-row">
+                        <span class="info-label">Total Evaluados 2024:</span> 39
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Estimado Evaluados 2025:</span> 20
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Calificación Promedio:</span> <span class="tag tag-ok">~95%</span>
+                    </div>
+                    <p style="font-size:12px; margin-top:10px; background:#f8fafc; padding:10px; border-radius:4px;">
+                        <strong>Conclusión:</strong> No se registraron proveedores con calificación deficiente (0-79) que afectaran la operación. No se establecieron planes de mejora.
+                    </p>
+                </div>
 
-                <div class="card col-12">
-                    <div class="card-title">4.3 GESTIÓN AMBIENTAL (ISO 14001)</div>
-                    <p style="font-size:12px; margin-bottom:15px; color:#64748b;"><strong>Referencia:</strong> ISO 14001 Numerales 9.3 (d) y (f)</p>
-                    
-                    <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">A. Desempeño de los Programas Ambientales</h4>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Programa Ambiental</th>
-                                <th>Indicador</th>
-                                <th>Meta 2025</th>
-                                <th>Resultado 2025</th>
-                                <th>Estado</th>
-                                <th>Análisis del Resultado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Uso Eficiente de Agua</strong></td>
-                                <td>m³/persona/mes</td>
-                                <td>&lt; 2.5</td>
-                                <td>2.1</td>
-                                <td><span class="tag tag-ok">CUMPLE</span></td>
-                                <td>Se cumplió gracias a campañas de ahorro y mantenimiento de sistemas.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Gestión de Residuos</strong></td>
-                                <td>% Aprovechamiento</td>
-                                <td>&gt; 75%</td>
-                                <td>68%</td>
-                                <td><span class="tag tag-err">NO CUMPLE</span></td>
-                                <td>No se cumplió la meta por acumulación de chatarra no evacuada en Q4. Plan de acción: Contrato de disposición inmediata Q1-2026.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Uso Racional Energía</strong></td>
-                                <td>kWh/mes</td>
-                                <td>&lt; 15,000</td>
-                                <td>16,200</td>
-                                <td><span class="tag tag-warn">DESVIACIÓN</span></td>
-                                <td>Aumento justificado por mayor producción en campo durante Q3-Q4 (+8% vs 2024).</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Emisiones Atmosféricas</strong></td>
-                                <td>Ton CO₂ eq/año</td>
-                                <td>&lt; 450</td>
-                                <td>412</td>
-                                <td><span class="tag tag-ok">CUMPLE</span></td>
-                                <td>Reducción del 8.4% vs 2024 gracias a optimización de rutas y mantenimiento de calderas.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Manejo RESPEL</strong></td>
-                                <td>% Disposición Legal</td>
-                                <td>100%</td>
-                                <td>100%</td>
-                                <td><span class="tag tag-ok">CUMPLE</span></td>
-                                <td>Todos los residuos peligrosos fueron entregados a gestores autorizados con certificados vigentes.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="card col-12">
+                    <div class="card-title">4.3 GESTIÓN AMBIENTAL (ISO 14001)</div>
+                    <p style="font-size:12px; margin-bottom:15px; color:#64748b;"><strong>Referencia:</strong> ISO 14001 Numerales 9.3 (d) y (f)</p>
+                    
+                    <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">A. Desempeño de los Programas Ambientales</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Programa Ambiental</th>
+                                <th>Indicador</th>
+                                <th>Meta 2025</th>
+                                <th>Resultado 2025</th>
+                                <th>Estado</th>
+                                <th>Análisis del Resultado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Uso Eficiente de Agua</strong></td>
+                                <td>m³/persona/mes</td>
+                                <td>&lt; 2.5</td>
+                                <td>2.1</td>
+                                <td><span class="tag tag-ok">CUMPLE</span></td>
+                                <td>Se cumplió gracias a campañas de ahorro y mantenimiento de sistemas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gestión de Residuos</strong></td>
+                                <td>% Aprovechamiento</td>
+                                <td>&gt; 75%</td>
+                                <td>68%</td>
+                                <td><span class="tag tag-err">NO CUMPLE</span></td>
+                                <td>No se cumplió la meta por acumulación de chatarra no evacuada en Q4. Plan de acción: Contrato de disposición inmediata Q1-2026.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Uso Racional Energía</strong></td>
+                                <td>kWh/mes</td>
+                                <td>&lt; 15,000</td>
+                                <td>16,200</td>
+                                <td><span class="tag tag-warn">DESVIACIÓN</span></td>
+                                <td>Aumento justificado por mayor producción en campo durante Q3-Q4 (+8% vs 2024).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Emisiones Atmosféricas</strong></td>
+                                <td>Ton CO₂ eq/año</td>
+                                <td>&lt; 450</td>
+                                <td>412</td>
+                                <td><span class="tag tag-ok">CUMPLE</span></td>
+                                <td>Reducción del 8.4% vs 2024 gracias a optimización de rutas y mantenimiento de calderas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Manejo RESPEL</strong></td>
+                                <td>% Disposición Legal</td>
+                                <td>100%</td>
+                                <td>100%</td>
+                                <td><span class="tag tag-ok">CUMPLE</span></td>
+                                <td>Todos los residuos peligrosos fueron entregados a gestores autorizados con certificados vigentes.</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-  <div class="grid-container" style="margin-top:20px;">
-    <div class="col-6">
-        <div class="card-title">Consumo de Agua (m³/mes) - Tendencia 2025</div>
-        <div style="height: 250px; position: relative;">
-            <canvas id="chartAgua"></canvas>
-        </div>
-    </div>
-    <div class="col-6">
-        <div class="card-title">Gestión de Residuos (Kg) - Comparativo 2024 vs 2025</div>
-        <div style="height: 250px; position: relative;">
-            <canvas id="chartResiduos"></canvas>
-        </div>
-    </div>
+  <div class="grid-container" style="margin-top:20px;">
+    <div class="col-6">
+        <div class="card-title">Consumo de Agua (m³/mes) - Tendencia 2025</div>
+        <div style="height: 250px; position: relative;">
+            <canvas id="chartAgua"></canvas>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card-title">Gestión de Residuos (Kg) - Comparativo 2024 vs 2025</div>
+        <div style="height: 250px; position: relative;">
+            <canvas id="chartResiduos"></canvas>
+        </div>
+    </div>
 </div>
 
-                    <div class="grid-container" style="margin-top:20px;">
-                        <div class="col-4">
-                            <div class="kpi-box" style="background:#f0fdf4; border-radius:8px;">
-                                <div class="kpi-sub">REDUCCIÓN CO₂</div>
-                                <div class="kpi-val" style="color:var(--success); font-size:28px;">-8.4%</div>
-                                <div class="kpi-sub">vs 2024 (412 Ton CO₂ eq)</div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="kpi-box" style="background:#eff6ff; border-radius:8px;">
-                                <div class="kpi-sub">AHORRO AGUA</div>
-                                <div class="kpi-val" style="color:var(--secondary); font-size:28px;">16%</div>
-                                <div class="kpi-sub">Reducción consumo per cápita</div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="kpi-box" style="background:#fef9c3; border-radius:8px;">
-                                <div class="kpi-sub">RESPEL GESTIONADO</div>
-                                <div class="kpi-val" style="color:var(--warning); font-size:28px;">2.4</div>
-                                <div class="kpi-sub">Toneladas (100% Legal)</div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="grid-container" style="margin-top:20px;">
+                        <div class="col-4">
+                            <div class="kpi-box" style="background:#f0fdf4; border-radius:8px;">
+                                <div class="kpi-sub">REDUCCIÓN CO₂</div>
+                                <div class="kpi-val" style="color:var(--success); font-size:28px;">-8.4%</div>
+                                <div class="kpi-sub">vs 2024 (412 Ton CO₂ eq)</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="kpi-box" style="background:#eff6ff; border-radius:8px;">
+                                <div class="kpi-sub">AHORRO AGUA</div>
+                                <div class="kpi-val" style="color:var(--secondary); font-size:28px;">16%</div>
+                                <div class="kpi-sub">Reducción consumo per cápita</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="kpi-box" style="background:#fef9c3; border-radius:8px;">
+                                <div class="kpi-sub">RESPEL GESTIONADO</div>
+                                <div class="kpi-val" style="color:var(--warning); font-size:28px;">2.4</div>
+                                <div class="kpi-sub">Toneladas (100% Legal)</div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">B. Comunicaciones de Partes Interesadas</h4>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Tipo de Comunicación</th>
-                                <th>Cantidad</th>
-                                <th>Detalle / Respuesta Dada</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Quejas Ambientales</strong></td>
-                                <td>2</td>
-                                <td>
-                                    <strong>Q2:</strong> Olores en Buenavista (quema de residuos). Acción: Se implementó protocolo de separación y se suspendió quema.<br>
-                                    <strong>Q3:</strong> Ruido nocturno en La Paz. Acción: Ajuste de horarios de operación de equipos ruidosos (después de las 6:00 am).
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Requerimientos Legales</strong></td>
-                                <td>3</td>
-                                <td>
-                                    <strong>Corporación Autónoma Regional:</strong> Visita de seguimiento a permisos de vertimientos en Corrales (Abril 2025). <span class="tag tag-ok">CERRADO</span><br>
-                                    <strong>ANLA:</strong> Solicitud de actualización ICA en Sinú 9 (Junio 2025). <span class="tag tag-ok">CERRADO</span><br>
-                                    <strong>Secretaría de Ambiente:</strong> Verificación de Plan de Manejo Ambiental en San Carlos (Nov 2025). <span class="tag tag-ok">CERRADO</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Solicitudes Comunidad</strong></td>
-                                <td>1</td>
-                                <td>
-                                    <strong>Vereda La Esperanza (La Paz):</strong> Solicitud de apoyo en jornada de reforestación comunitaria (Agosto 2025). Se donaron 150 árboles nativos y participó personal de la empresa. <span class="tag tag-ok">EJECUTADO</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">B. Comunicaciones de Partes Interesadas</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo de Comunicación</th>
+                                <th>Cantidad</th>
+                                <th>Detalle / Respuesta Dada</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Quejas Ambientales</strong></td>
+                                <td>2</td>
+                                <td>
+                                    <strong>Q2:</strong> Olores en Buenavista (quema de residuos). Acción: Se implementó protocolo de separación y se suspendió quema.<br>
+                                    <strong>Q3:</strong> Ruido nocturno en La Paz. Acción: Ajuste de horarios de operación de equipos ruidosos (después de las 6:00 am).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Requerimientos Legales</strong></td>
+                                <td>3</td>
+                                <td>
+                                    <strong>Corporación Autónoma Regional:</strong> Visita de seguimiento a permisos de vertimientos en Corrales (Abril 2025). <span class="tag tag-ok">CERRADO</span><br>
+                                    <strong>ANLA:</strong> Solicitud de actualización ICA en Sinú 9 (Junio 2025). <span class="tag tag-ok">CERRADO</span><br>
+                                    <strong>Secretaría de Ambiente:</strong> Verificación de Plan de Manejo Ambiental en San Carlos (Nov 2025). <span class="tag tag-ok">CERRADO</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Solicitudes Comunidad</strong></td>
+                                <td>1</td>
+                                <td>
+                                    <strong>Vereda La Esperanza (La Paz):</strong> Solicitud de apoyo en jornada de reforestación comunitaria (Agosto 2025). Se donaron 150 árboles nativos y participó personal de la empresa. <span class="tag tag-ok">EJECUTADO</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                    <div style="background:#f0fdf4; padding:15px; margin-top:15px; border-left:4px solid var(--success); border-radius:4px;">
-                        <h4 style="font-size:13px; margin-bottom:5px; color:#14532d;">✓ CONCLUSIÓN GESTIÓN AMBIENTAL 2025</h4>
-                        <p style="font-size:12px; line-height:1.6;">
-                            El desempeño ambiental fue <strong>SATISFACTORIO</strong>, cumpliendo 3 de 5 programas. Las oportunidades de mejora identificadas (residuos y energía) tienen planes de acción definidos para 2026. La relación con las comunidades y autoridades ambientales se mantiene positiva, con respuesta oportuna a todas las comunicaciones.
-                        </p>
-                    </div>
-                </div>
+                    <div style="background:#f0fdf4; padding:15px; margin-top:15px; border-left:4px solid var(--success); border-radius:4px;">
+                        <h4 style="font-size:13px; margin-bottom:5px; color:#14532d;">✓ CONCLUSIÓN GESTIÓN AMBIENTAL 2025</h4>
+                        <p style="font-size:12px; line-height:1.6;">
+                            El desempeño ambiental fue <strong>SATISFACTORIO</strong>, cumpliendo 3 de 5 programas. Las oportunidades de mejora identificadas (residuos y energía) tienen planes de acción definidos para 2026. La relación con las comunidades y autoridades ambientales se mantiene positiva, con respuesta oportuna a todas las comunicaciones.
+                        </p>
+                    </div>
+                </div>
 
-                <div class="card col-12">
-                    <div class="card-title">4.4 SEGURIDAD Y SALUD EN EL TRABAJO (SST)</div>
-                    <div class="grid-container">
-                        <div class="col-3 kpi-box">
-                            <div class="kpi-sub">ACCIDENTES (AT)</div>
-                            <div class="kpi-val" style="color:var(--success)">0</div>
-                            <div class="kpi-sub">Meta Cumplida</div>
-                        </div>
-                        <div class="col-3 kpi-box">
-                            <div class="kpi-sub">ENFERMEDAD LABORAL</div>
-                            <div class="kpi-val" style="color:var(--success)">0</div>
-                            <div class="kpi-sub">Casos Calificados</div>
-                        </div>
-                        <div class="col-3 kpi-box">
-                            <div class="kpi-sub">AUSENTISMO</div>
-                            <div class="kpi-val" style="color:var(--warning)">170</div>
-                            <div class="kpi-sub">Días (Origen Común)</div>
-                        </div>
-                        <div class="col-3 kpi-box">
-                            <div class="kpi-sub">DAÑOS PROPIEDAD</div>
-                            <div class="kpi-val" style="color:var(--success)">0</div>
-                            <div class="kpi-sub">Pérdidas Materiales</div>
-                        </div>
+                <div class="card col-12">
+                    <div class="card-title">4.4 SEGURIDAD Y SALUD EN EL TRABAJO (SST)</div>
+                    <div class="grid-container">
+                        <div class="col-3 kpi-box">
+                            <div class="kpi-sub">ACCIDENTES (AT)</div>
+                            <div class="kpi-val" style="color:var(--success)">0</div>
+                            <div class="kpi-sub">Meta Cumplida</div>
+                        </div>
+                        <div class="col-3 kpi-box">
+                            <div class="kpi-sub">ENFERMEDAD LABORAL</div>
+                            <div class="kpi-val" style="color:var(--success)">0</div>
+                            <div class="kpi-sub">Casos Calificados</div>
+                        </div>
+                        <div class="col-3 kpi-box">
+                            <div class="kpi-sub">AUSENTISMO</div>
+                            <div class="kpi-val" style="color:var(--warning)">170</div>
+                            <div class="kpi-sub">Días (Origen Común)</div>
+                        </div>
+                        <div class="col-3 kpi-box">
+                            <div class="kpi-sub">DAÑOS PROPIEDAD</div>
+                            <div class="kpi-val" style="color:var(--success)">0</div>
+                            <div class="kpi-sub">Pérdidas Materiales</div>
+                        </div>
 
-                        <div class="col-12">
-                            <h4 style="font-size:13px; margin:15px 0 10px 0; color:#334155;">Gestión Preventiva y Condiciones de Trabajo</h4>
-                            <table class="data-table">
-                                <thead>
-                                    <tr>
-                                        <th>Gestión</th>
-                                        <th>Actividad / Resultado</th>
-                                        <th>Estado</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><strong>Inspecciones</strong></td>
-                                        <td>Ejecución Global: 99%</td>
-                                        <td><span class="tag tag-ok">CUMPLE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Mediciones Higiénicas</strong></td>
-                                        <td>Realizadas: Buenavista y Sinú 9 | PENDIENTES: Corrales, La Paz, EVECA</td>
-                                        <td><span class="tag tag-warn">PARCIAL</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Exámenes Médicos</strong></td>
-                                        <td>Cobertura: 100% del personal programado</td>
-                                        <td><span class="tag tag-ok">CUMPLE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Matriz de Peligros</strong></td>
-                                        <td>Actualizada sin cambios críticos</td>
-                                        <td><span class="tag tag-ok">VIGENTE</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>Reportes (Tarjetas)</strong></td>
-                                        <td>28 Reportes | 43% Cerrados (12/28)</td>
-                                        <td><span class="tag tag-warn">EN PROCESO</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>COPASST</strong></td>
-                                        <td>100% Reuniones ejecutadas</td>
-                                        <td><span class="tag tag-ok">CUMPLE</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <div class="col-12">
+                            <h4 style="font-size:13px; margin:15px 0 10px 0; color:#334155;">Gestión Preventiva y Condiciones de Trabajo</h4>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Gestión</th>
+                                        <th>Actividad / Resultado</th>
+                                        <th>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Inspecciones</strong></td>
+                                        <td>Ejecución Global: 99%</td>
+                                        <td><span class="tag tag-ok">CUMPLE</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Mediciones Higiénicas</strong></td>
+                                        <td>Realizadas: Buenavista y Sinú 9 | PENDIENTES: Corrales, La Paz, EVECA</td>
+                                        <td><span class="tag tag-warn">PARCIAL</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Exámenes Médicos</strong></td>
+                                        <td>Cobertura: 100% del personal programado</td>
+                                        <td><span class="tag tag-ok">CUMPLE</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Matriz de Peligros</strong></td>
+                                        <td>Actualizada sin cambios críticos</td>
+                                        <td><span class="tag tag-ok">VIGENTE</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Reportes (Tarjetas)</strong></td>
+                                        <td>28 Reportes | 43% Cerrados (12/28)</td>
+                                        <td><span class="tag tag-warn">EN PROCESO</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>COPASST</strong></td>
+                                        <td>100% Reuniones ejecutadas</td>
+                                        <td><span class="tag tag-ok">CUMPLE</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                        <div class="col-12" style="margin-top:10px;">
-                            <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">Gestión de Emergencias</h4>
-                            <p style="font-size:12px; line-height:1.6;">Se validó la capacidad de respuesta en las 5 sedes operativas. <strong>Resultado: EFICAZ</strong></p>
-                            <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-top:10px;">
-                                <div style="background:#f0fdf4; padding:8px; border-radius:4px; font-size:11px;">
-                                    <strong>Tecnológicos:</strong> Incendio, Derrames, Explosiones
-                                </div>
-                                <div style="background:#eff6ff; padding:8px; border-radius:4px; font-size:11px;">
-                                    <strong>SST:</strong> Rescate Alturas, Quemaduras, Primeros Auxilios
-                                </div>
-                                <div style="background:#fef9c3; padding:8px; border-radius:4px; font-size:11px;">
-                                    <strong>Naturales:</strong> Sismo (Simulacro Nacional)
-                                </div>
-                            </div>
-                        </div>
+                        <div class="col-12" style="margin-top:10px;">
+                            <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">Gestión de Emergencias</h4>
+                            <p style="font-size:12px; line-height:1.6;">Se validó la capacidad de respuesta en las 5 sedes operativas. <strong>Resultado: EFICAZ</strong></p>
+                            <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-top:10px;">
+                                <div style="background:#f0fdf4; padding:8px; border-radius:4px; font-size:11px;">
+                                    <strong>Tecnológicos:</strong> Incendio, Derrames, Explosiones
+                                </div>
+                                <div style="background:#eff6ff; padding:8px; border-radius:4px; font-size:11px;">
+                                    <strong>SST:</strong> Rescate Alturas, Quemaduras, Primeros Auxilios
+                                </div>
+                                <div style="background:#fef9c3; padding:8px; border-radius:4px; font-size:11px;">
+                                    <strong>Naturales:</strong> Sismo (Simulacro Nacional)
+                                </div>
+                            </div>
+                        </div>
 
-                        <div class="col-12" style="margin-top:10px;">
-                            <div style="background:#fee2e2; padding:15px; border-left:4px solid var(--danger); border-radius:4px;">
-                                <h4 style="font-size:13px; margin-bottom:5px; color:#991b1b;">⚠️ HALLAZGO CRÍTICO - CONTRATISTAS</h4>
-                                <p style="font-size:12px;">
-                                    <strong>Proyecto La Paz - Empresa ASETCO:</strong> Se detectó incumplimiento grave a la Política de Alcohol y Drogas (positivo en alcoholimetría). <strong>Acción:</strong> Se aplicó protocolo de seguridad y restricción de acceso. El resto de contratistas cumplieron satisfactoriamente (100%).
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <div class="col-12" style="margin-top:10px;">
+                            <div style="background:#fee2e2; padding:15px; border-left:4px solid var(--danger); border-radius:4px;">
+                                <h4 style="font-size:13px; margin-bottom:5px; color:#991b1b;">⚠️ HALLAZGO CRÍTICO - CONTRATISTAS</h4>
+                                <p style="font-size:12px;">
+                                    <strong>Proyecto La Paz - Empresa ASETCO:</strong> Se detectó incumplimiento grave a la Política de Alcohol y Drogas (positivo en alcoholimetría). <strong>Acción:</strong> Se aplicó protocolo de seguridad y restricción de acceso. El resto de contratistas cumplieron satisfactoriamente (100%).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="card col-12">
-                    <div class="card-title">4.5 PLAN ESTRATÉGICO DE SEGURIDAD VIAL (PESV - RES. 40595)</div>
-                    <div class="grid-container">
-                        <div class="col-3 kpi-box">
-                            <div class="kpi-sub">SINIESTROS VIALES</div>
-                            <div class="kpi-val" style="color:var(--success)">0</div>
-                            <div class="kpi-sub">Cero Accidentes</div>
-                        </div>
-                        <div class="col-3 kpi-box">
-                            <div class="kpi-sub">CAPACITACIÓN</div>
-                            <div class="kpi-val" style="color:var(--success)">100%</div>
-                            <div class="kpi-sub">Conductores Formados</div>
-                        </div>
-                        <div class="col-3 kpi-box">
-                            <div class="kpi-sub">MANTENIMIENTO</div>
-                            <div class="kpi-val" style="color:var(--success)">100%</div>
-                            <div class="kpi-sub">Plan Cumplido</div>
-                        </div>
-                        <div class="col-3 kpi-box">
-                            <div class="kpi-sub">INSPECCIONES</div>
-                            <div class="kpi-val" style="color:var(--success)">100%</div>
-                            <div class="kpi-sub">Preoperacionales</div>
-                        </div>
-                    </div>
-                    <div style="background:#eff6ff; padding:15px; margin-top:15px; border-radius:4px;">
-                        <p style="font-size:12px;"><strong>🚀 INNOVACIÓN 2025:</strong> Se implementó sistema digital mediante Google AppScript para el reporte diario de inspecciones y planificación de rutas en tiempo real, mejorando la trazabilidad y control operativo.</p>
-                    </div>
-                </div>
+                <div class="card col-12">
+                    <div class="card-title">4.5 PLAN ESTRATÉGICO DE SEGURIDAD VIAL (PESV - RES. 40595)</div>
+                    <div class="grid-container">
+                        <div class="col-3 kpi-box">
+                            <div class="kpi-sub">SINIESTROS VIALES</div>
+                            <div class="kpi-val" style="color:var(--success)">0</div>
+                            <div class="kpi-sub">Cero Accidentes</div>
+                        </div>
+                        <div class="col-3 kpi-box">
+                            <div class="kpi-sub">CAPACITACIÓN</div>
+                            <div class="kpi-val" style="color:var(--success)">100%</div>
+                            <div class="kpi-sub">Conductores Formados</div>
+                        </div>
+                        <div class="col-3 kpi-box">
+                            <div class="kpi-sub">MANTENIMIENTO</div>
+                            <div class="kpi-val" style="color:var(--success)">100%</div>
+                            <div class="kpi-sub">Plan Cumplido</div>
+                        </div>
+                        <div class="col-3 kpi-box">
+                            <div class="kpi-sub">INSPECCIONES</div>
+                            <div class="kpi-val" style="color:var(--success)">100%</div>
+                            <div class="kpi-sub">Preoperacionales</div>
+                        </div>
+                    </div>
+                    <div style="background:#eff6ff; padding:15px; margin-top:15px; border-radius:4px;">
+                        <p style="font-size:12px;"><strong>🚀 INNOVACIÓN 2025:</strong> Se implementó sistema digital mediante Google AppScript para el reporte diario de inspecciones y planificación de rutas en tiempo real, mejorando la trazabilidad y control operativo.</p>
+                    </div>
+                </div>
 
-                <div class="card col-12">
-                    <div class="card-title">4.6 DESEMPEÑO Y RETROALIMENTACIÓN DE GRUPOS DE INTERÉS</div>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Grupo de Interés</th>
-                                <th>Mecanismo</th>
-                                <th>Retroalimentación y Gestión 2025</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Empleados</strong></td>
-                                <td>COPASST / Comité Convivencia / Encuestas</td>
-                                <td>Clima Estable. Se atendieron solicitudes de bienestar y capacitación (100% Ejecución).</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Clientes</strong></td>
-                                <td>Encuestas / Reuniones Gerenciales</td>
-                                <td>Satisfacción Sobresaliente (4.3/5.0). Se gestionaron requerimientos de mantenimiento predictivo.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Proveedores</strong></td>
-                                <td>Evaluaciones / Mesas de Trabajo</td>
-                                <td>Alineados. Se fortalece la exigencia HSEQ con nueva herramienta digital 2026.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Comunidad / Sociedad</strong></td>
-                                <td>PQR / Socialización Proyectos</td>
-                                <td>Licencia Social Activa. No bloqueos ni reclamaciones ambientales en zonas de operación.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Accionistas</strong></td>
-                                <td>Asambleas / Informes</td>
-                                <td>Respaldo. Aprobación de recursos para continuidad del negocio y proyectos ESG.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Entidades del Estado</strong></td>
-                                <td>Reportes Legales / Auditorías</td>
-                                <td>Cumplimiento. Reportes a MinTrabajo y ANLA a tiempo. Matriz legal al 97%.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Empresas Pares</strong></td>
-                                <td>Alianzas Estratégicas</td>
-                                <td>Sinergia. Actualización conjunta de Materialidad 2025 con Kronos/Omega.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Entidades Financieras</strong></td>
-                                <td>Gestión de Tesorería</td>
-                                <td>Solidez. Cumplimiento de obligaciones financieras que garantizan la operación.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <div class="card col-12">
+                    <div class="card-title">4.6 DESEMPEÑO Y RETROALIMENTACIÓN DE GRUPOS DE INTERÉS</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Grupo de Interés</th>
+                                <th>Mecanismo</th>
+                                <th>Retroalimentación y Gestión 2025</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Empleados</strong></td>
+                                <td>COPASST / Comité Convivencia / Encuestas</td>
+                                <td>Clima Estable. Se atendieron solicitudes de bienestar y capacitación (100% Ejecución).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Clientes</strong></td>
+                                <td>Encuestas / Reuniones Gerenciales</td>
+                                <td>Satisfacción Sobresaliente (4.3/5.0). Se gestionaron requerimientos de mantenimiento predictivo.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Proveedores</strong></td>
+                                <td>Evaluaciones / Mesas de Trabajo</td>
+                                <td>Alineados. Se fortalece la exigencia HSEQ con nueva herramienta digital 2026.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Comunidad / Sociedad</strong></td>
+                                <td>PQR / Socialización Proyectos</td>
+                                <td>Licencia Social Activa. No bloqueos ni reclamaciones ambientales en zonas de operación.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accionistas</strong></td>
+                                <td>Asambleas / Informes</td>
+                                <td>Respaldo. Aprobación de recursos para continuidad del negocio y proyectos ESG.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Entidades del Estado</strong></td>
+                                <td>Reportes Legales / Auditorías</td>
+                                <td>Cumplimiento. Reportes a MinTrabajo y ANLA a tiempo. Matriz legal al 97%.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Empresas Pares</strong></td>
+                                <td>Alianzas Estratégicas</td>
+                                <td>Sinergia. Actualización conjunta de Materialidad 2025 con Kronos/Omega.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Entidades Financieras</strong></td>
+                                <td>Gestión de Tesorería</td>
+                                <td>Solidez. Cumplimiento de obligaciones financieras que garantizan la operación.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
 <div class="card col-12">
-    <div class="card-title">4.7 CONSULTA Y PARTICIPACIÓN DE LOS TRABAJADORES</div>
-    <p style="font-size:12px; margin-bottom:15px; color:#64748b;">
-        <strong>Referencia:</strong> ISO 45001 Numerales 5.4 y 9.3.2 (e)
-    </p>
-    
-    <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">A. Mecanismos de Consulta y Participación</h4>
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Mecanismo</th>
-                <th>Frecuencia</th>
-                <th>Cumplimiento 2025</th>
-                <th>Principales Aportes y Resultados</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>COPASST</strong></td>
-                <td>Mensual</td>
-                <td><span class="tag tag-ok">100%</span></td>
-                <td>Se ejecutaron el 100% de las reuniones programadas. El comité participó activamente en la revisión de accidentes, inspecciones y validación de controles operacionales.</td>
-            </tr>
-            <tr>
-                <td><strong>Comité de Convivencia Laboral</strong></td>
-                <td>Trimestral</td>
-                <td><span class="tag tag-ok">100%</span></td>
-                <td>Se atendieron solicitudes de bienestar y se gestionó el clima laboral. No se reportaron casos de acoso laboral durante 2025.</td>
-            </tr>
-            <tr>
-                <td><strong>Tarjetas de Reporte (Actos/Condiciones Inseguras)</strong></td>
-                <td>Permanente</td>
-                <td>28 Reportes recibidos</td>
-                <td>Los trabajadores reportaron 28 condiciones/actos inseguros. Se cerró el 43% (12/28). <span class="tag tag-warn">OPORTUNIDAD:</span> Mejorar tiempo de respuesta y cierre.</td>
-            </tr>
-            <tr>
-                <td><strong>Encuestas y Solicitudes de Capacitación</strong></td>
-                <td>Según necesidad</td>
-                <td><span class="tag tag-ok">100% Atendidas</span></td>
-                <td>Se ejecutó el 100% de las solicitudes de capacitación y bienestar presentadas por los trabajadores.</td>
-            </tr>
-            <tr>
-                <td><strong>Participación en Inspecciones SST</strong></td>
-                <td>Según cronograma</td>
-                <td><span class="tag tag-ok">99% Ejecución</span></td>
-                <td>Los trabajadores participaron activamente en inspecciones de seguridad con un cumplimiento global del 99%.</td>
-            </tr>
-            <tr>
-                <td><strong>Simulacros de Emergencia</strong></td>
-                <td>Según Plan de Emergencias</td>
-                <td><span class="tag tag-ok">EFICAZ</span></td>
-                <td>Se validó la capacidad de respuesta en las 5 sedes operativas con participación activa del personal. Resultado: EFICAZ.</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="card-title">4.7 CONSULTA Y PARTICIPACIÓN DE LOS TRABAJADORES</div>
+    <p style="font-size:12px; margin-bottom:15px; color:#64748b;">
+        <strong>Referencia:</strong> ISO 45001 Numerales 5.4 y 9.3.2 (e)
+    </p>
+    
+    <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">A. Mecanismos de Consulta y Participación</h4>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Mecanismo</th>
+                <th>Frecuencia</th>
+                <th>Cumplimiento 2025</th>
+                <th>Principales Aportes y Resultados</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>COPASST</strong></td>
+                <td>Mensual</td>
+                <td><span class="tag tag-ok">100%</span></td>
+                <td>Se ejecutaron el 100% de las reuniones programadas. El comité participó activamente en la revisión de accidentes, inspecciones y validación de controles operacionales.</td>
+            </tr>
+            <tr>
+                <td><strong>Comité de Convivencia Laboral</strong></td>
+                <td>Trimestral</td>
+                <td><span class="tag tag-ok">100%</span></td>
+                <td>Se atendieron solicitudes de bienestar y se gestionó el clima laboral. No se reportaron casos de acoso laboral durante 2025.</td>
+            </tr>
+            <tr>
+                <td><strong>Tarjetas de Reporte (Actos/Condiciones Inseguras)</strong></td>
+                <td>Permanente</td>
+                <td>28 Reportes recibidos</td>
+                <td>Los trabajadores reportaron 28 condiciones/actos inseguros. Se cerró el 43% (12/28). <span class="tag tag-warn">OPORTUNIDAD:</span> Mejorar tiempo de respuesta y cierre.</td>
+            </tr>
+            <tr>
+                <td><strong>Encuestas y Solicitudes de Capacitación</strong></td>
+                <td>Según necesidad</td>
+                <td><span class="tag tag-ok">100% Atendidas</span></td>
+                <td>Se ejecutó el 100% de las solicitudes de capacitación y bienestar presentadas por los trabajadores.</td>
+            </tr>
+            <tr>
+                <td><strong>Participación en Inspecciones SST</strong></td>
+                <td>Según cronograma</td>
+                <td><span class="tag tag-ok">99% Ejecución</span></td>
+                <td>Los trabajadores participaron activamente en inspecciones de seguridad con un cumplimiento global del 99%.</td>
+            </tr>
+            <tr>
+                <td><strong>Simulacros de Emergencia</strong></td>
+                <td>Según Plan de Emergencias</td>
+                <td><span class="tag tag-ok">EFICAZ</span></td>
+                <td>Se validó la capacidad de respuesta en las 5 sedes operativas con participación activa del personal. Resultado: EFICAZ.</td>
+            </tr>
+        </tbody>
+    </table>
 
-    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">B. Indicadores de Participación 2025</h4>
-    <div class="grid-container">
-        <div class="col-3">
-            <div class="kpi-box" style="background:#f0fdf4; border-radius:8px; padding:15px;">
-                <div class="kpi-sub">REUNIONES COPASST</div>
-                <div class="kpi-val" style="color:var(--success); font-size:28px;">12/12</div>
-                <div class="kpi-sub">100% Cumplimiento</div>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="kpi-box" style="background:#eff6ff; border-radius:8px; padding:15px;">
-                <div class="kpi-sub">REPORTES TRABAJADORES</div>
-                <div class="kpi-val" style="color:var(--secondary); font-size:28px;">28</div>
-                <div class="kpi-sub">Tarjetas actos/condiciones</div>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="kpi-box" style="background:#fef9c3; border-radius:8px; padding:15px;">
-                <div class="kpi-sub">CIERRE DE REPORTES</div>
-                <div class="kpi-val" style="color:var(--warning); font-size:28px;">43%</div>
-                <div class="kpi-sub">12 de 28 cerrados</div>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="kpi-box" style="background:#f8fafc; border-radius:8px; padding:15px;">
-                <div class="kpi-sub">INSPECCIONES SST</div>
-                <div class="kpi-val" style="color:var(--success); font-size:28px;">99%</div>
-                <div class="kpi-sub">Ejecución global</div>
-            </div>
-        </div>
-    </div>
+    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">B. Indicadores de Participación 2025</h4>
+    <div class="grid-container">
+        <div class="col-3">
+            <div class="kpi-box" style="background:#f0fdf4; border-radius:8px; padding:15px;">
+                <div class="kpi-sub">REUNIONES COPASST</div>
+                <div class="kpi-val" style="color:var(--success); font-size:28px;">12/12</div>
+                <div class="kpi-sub">100% Cumplimiento</div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="kpi-box" style="background:#eff6ff; border-radius:8px; padding:15px;">
+                <div class="kpi-sub">REPORTES TRABAJADORES</div>
+                <div class="kpi-val" style="color:var(--secondary); font-size:28px;">28</div>
+                <div class="kpi-sub">Tarjetas actos/condiciones</div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="kpi-box" style="background:#fef9c3; border-radius:8px; padding:15px;">
+                <div class="kpi-sub">CIERRE DE REPORTES</div>
+                <div class="kpi-val" style="color:var(--warning); font-size:28px;">43%</div>
+                <div class="kpi-sub">12 de 28 cerrados</div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="kpi-box" style="background:#f8fafc; border-radius:8px; padding:15px;">
+                <div class="kpi-sub">INSPECCIONES SST</div>
+                <div class="kpi-val" style="color:var(--success); font-size:28px;">99%</div>
+                <div class="kpi-sub">Ejecución global</div>
+            </div>
+        </div>
+    </div>
 
-    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">C. Principales Aportes de los Trabajadores en 2025</h4>
-    <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:15px;">
-        <div style="background:#f0fdf4; padding:12px; border-left:3px solid var(--success); border-radius:4px; font-size:12px;">
-            <strong style="color:#14532d;">✓ IDENTIFICACIÓN DE PELIGROS:</strong>
-            <p style="margin-top:5px;">28 reportes de condiciones y actos inseguros identificados por los trabajadores en campo, permitiendo acciones correctivas oportunas.</p>
-        </div>
-        <div style="background:#eff6ff; padding:12px; border-left:3px solid var(--secondary); border-radius:4px; font-size:12px;">
-            <strong style="color:#1e3a8a;">✓ MEJORA DE PROCEDIMIENTOS:</strong>
-            <p style="margin-top:5px;">Aportes del COPASST implementados en la actualización de procedimientos de trabajo seguro y controles operacionales.</p>
-        </div>
-        <div style="background:#fef9c3; padding:12px; border-left:3px solid var(--warning); border-radius:4px; font-size:12px;">
-            <strong style="color:#854d0e;">✓ CAPACITACIÓN:</strong>
-            <p style="margin-top:5px;">Solicitudes de capacitación técnica atendidas al 100%, mejorando competencias del personal operativo.</p>
-        </div>
-        <div style="background:#f8fafc; padding:12px; border-left:3px solid #64748b; border-radius:4px; font-size:12px;">
-            <strong style="color:#334155;">✓ CULTURA DE PREVENCIÓN:</strong>
-            <p style="margin-top:5px;">Participación activa en simulacros de emergencia validando la eficacia de los planes de respuesta en las 5 sedes.</p>
-        </div>
-    </div>
+    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">C. Principales Aportes de los Trabajadores en 2025</h4>
+    <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:15px;">
+        <div style="background:#f0fdf4; padding:12px; border-left:3px solid var(--success); border-radius:4px; font-size:12px;">
+            <strong style="color:#14532d;">✓ IDENTIFICACIÓN DE PELIGROS:</strong>
+            <p style="margin-top:5px;">28 reportes de condiciones y actos inseguros identificados por los trabajadores en campo, permitiendo acciones correctivas oportunas.</p>
+        </div>
+        <div style="background:#eff6ff; padding:12px; border-left:3px solid var(--secondary); border-radius:4px; font-size:12px;">
+            <strong style="color:#1e3a8a;">✓ MEJORA DE PROCEDIMIENTOS:</strong>
+            <p style="margin-top:5px;">Aportes del COPASST implementados en la actualización de procedimientos de trabajo seguro y controles operacionales.</p>
+        </div>
+        <div style="background:#fef9c3; padding:12px; border-left:3px solid var(--warning); border-radius:4px; font-size:12px;">
+            <strong style="color:#854d0e;">✓ CAPACITACIÓN:</strong>
+            <p style="margin-top:5px;">Solicitudes de capacitación técnica atendidas al 100%, mejorando competencias del personal operativo.</p>
+        </div>
+        <div style="background:#f8fafc; padding:12px; border-left:3px solid #64748b; border-radius:4px; font-size:12px;">
+            <strong style="color:#334155;">✓ CULTURA DE PREVENCIÓN:</strong>
+            <p style="margin-top:5px;">Participación activa en simulacros de emergencia validando la eficacia de los planes de respuesta en las 5 sedes.</p>
+        </div>
+    </div>
 
-    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">D. Acciones Implementadas por Consulta</h4>
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Origen de la Consulta</th>
-                <th>Acción Implementada</th>
-                <th>Estado</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Solicitud COPASST</strong></td>
-                <td>Mejoras en condiciones locativas y actualización de matriz de peligros sin cambios críticos.</td>
-                <td><span class="tag tag-ok">IMPLEMENTADO</span></td>
-            </tr>
-            <tr>
-                <td><strong>Reportes Trabajadores (Tarjetas)</strong></td>
-                <td>Gestión inmediata de 8 reportes en todas las sedes (100% cierre).</td>
-                <td><span class="tag tag-ok">CERRADOS</span></td>
-            </tr>
-            <tr>
-                <td><strong>Encuestas de Bienestar</strong></td>
-                <td>Atención a solicitudes de bienestar y capacitación (100% ejecución).</td>
-                <td><span class="tag tag-ok">EJECUTADO</span></td>
-            </tr>
-            <tr>
-                <td><strong>Retroalimentación Post-Simulacros</strong></td>
-                <td>Mejoras en planes de emergencia y equipos de respuesta.</td>
-                <td><span class="tag tag-warn">EN PROCESO</span></td>
-            </tr>
-        </tbody>
-    </table>
+    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">D. Acciones Implementadas por Consulta</h4>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Origen de la Consulta</th>
+                <th>Acción Implementada</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Solicitud COPASST</strong></td>
+                <td>Mejoras en condiciones locativas y actualización de matriz de peligros sin cambios críticos.</td>
+                <td><span class="tag tag-ok">IMPLEMENTADO</span></td>
+            </tr>
+            <tr>
+                <td><strong>Reportes Trabajadores (Tarjetas)</strong></td>
+                <td>Gestión inmediata de 8 reportes en todas las sedes (100% cierre).</td>
+                <td><span class="tag tag-ok">CERRADOS</span></td>
+            </tr>
+            <tr>
+                <td><strong>Encuestas de Bienestar</strong></td>
+                <td>Atención a solicitudes de bienestar y capacitación (100% ejecución).</td>
+                <td><span class="tag tag-ok">EJECUTADO</span></td>
+            </tr>
+            <tr>
+                <td><strong>Retroalimentación Post-Simulacros</strong></td>
+                <td>Mejoras en planes de emergencia y equipos de respuesta.</td>
+                <td><span class="tag tag-warn">EN PROCESO</span></td>
+            </tr>
+        </tbody>
+    </table>
 
-    <div style="background:#eff6ff; padding:15px; margin-top:15px; border-left:4px solid var(--secondary); border-radius:4px;">
-        <h4 style="font-size:13px; margin-bottom:5px; color:#1e3a8a;">✓ CONCLUSIÓN CONSULTA Y PARTICIPACIÓN 2025</h4>
-        <p style="font-size:12px; line-height:1.6;">
-            Los mecanismos de consulta y participación operan de manera <strong>EFICAZ</strong>. Se evidencia compromiso activo de los trabajadores en la identificación de peligros, reporte de condiciones inseguras y participación en comités legales (COPASST, Comité de Convivencia). Las sugerencias y reportes han generado mejoras tangibles en las condiciones de trabajo.<br><br>
-            <strong>Oportunidad de Mejora 2026:</strong> Acelerar el tiempo de respuesta y cierre de tarjetas de reporte (actualmente 43% - meta: >80%). Se requiere fortalecer el seguimiento y comunicación de acciones tomadas a partir de los reportes de los trabajadores.
-        </p>
-    </div>
-</div> 
+    <div style="background:#eff6ff; padding:15px; margin-top:15px; border-left:4px solid var(--secondary); border-radius:4px;">
+        <h4 style="font-size:13px; margin-bottom:5px; color:#1e3a8a;">✓ CONCLUSIÓN CONSULTA Y PARTICIPACIÓN 2025</h4>
+        <p style="font-size:12px; line-height:1.6;">
+            Los mecanismos de consulta y participación operan de manera <strong>EFICAZ</strong>. Se evidencia compromiso activo de los trabajadores en la identificación de peligros, reporte de condiciones inseguras y participación en comités legales (COPASST, Comité de Convivencia). Las sugerencias y reportes han generado mejoras tangibles en las condiciones de trabajo.<br><br>
+            <strong>Oportunidad de Mejora 2026:</strong> Acelerar el tiempo de respuesta y cierre de tarjetas de reporte (actualmente 43% - meta: >80%). Se requiere fortalecer el seguimiento y comunicación de acciones tomadas a partir de los reportes de los trabajadores.
+        </p>
+    </div>
+</div> 
 </div>
-</div> 
-        <div id="sec5" class="section-view">
-            <div class="grid-container">
-                <div class="card col-12">
-                    <div class="card-title">5. VERIFICACIÓN Y ASEGURAMIENTO</div>
-                </div>
+</div> 
+        <div id="sec5" class="section-view">
+            <div class="grid-container">
+                <div class="card col-12">
+                    <div class="card-title">5. VERIFICACIÓN Y ASEGURAMIENTO</div>
+                </div>
 
-                <div class="card col-6">
-                    <div class="card-title">5.1 CUMPLIMIENTO LEGAL Y NORMATIVO</div>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Matriz Evaluada</th>
-                                <th>2024</th>
-                                <th>2025</th>
-                                <th>Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Legal SST (Dec. 1072)</strong></td>
-                                <td>96.38%</td>
-                                <td><span class="tag tag-ok">97.73%</span></td>
-                                <td>CUMPLE</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Legal Ambiental</strong></td>
-                                <td>100%</td>
-                                <td><span class="tag tag-ok">100%</span></td>
-                                <td>CUMPLE</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Cambios Normativos</strong></td>
-                                <td>N/A</td>
-                                <td><span class="tag tag-ok">EVALUADOS</span></td>
-                                <td>ACTUALIZADO</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p style="font-size:11px; margin-top:10px; background:#f8fafc; padding:8px; border-radius:4px;">
-                        <strong>Brecha 2.27%:</strong> Corresponde a la formalización administrativa del Teletrabajo, actualmente en gestión.
-                    </p>
-                </div>
+                <div class="card col-6">
+                    <div class="card-title">5.1 CUMPLIMIENTO LEGAL Y NORMATIVO</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Matriz Evaluada</th>
+                                <th>2024</th>
+                                <th>2025</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Legal SST (Dec. 1072)</strong></td>
+                                <td>96.38%</td>
+                                <td><span class="tag tag-ok">97.73%</span></td>
+                                <td>CUMPLE</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Legal Ambiental</strong></td>
+                                <td>100%</td>
+                                <td><span class="tag tag-ok">100%</span></td>
+                                <td>CUMPLE</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cambios Normativos</strong></td>
+                                <td>N/A</td>
+                                <td><span class="tag tag-ok">EVALUADOS</span></td>
+                                <td>ACTUALIZADO</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size:11px; margin-top:10px; background:#f8fafc; padding:8px; border-radius:4px;">
+                        <strong>Brecha 2.27%:</strong> Corresponde a la formalización administrativa del Teletrabajo, actualmente en gestión.
+                    </p>
+                </div>
 
-                <div class="card col-6">
-                    <div class="card-title">5.2 RESULTADOS DE AUDITORÍAS</div>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Fuente de Auditoría</th>
-                                <th>Tipo</th>
-                                <th>Cantidad</th>
-                                <th>Estado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Interna HSEQ</strong></td>
-                                <td>No Conformidades</td>
-                                <td>0</td>
-                                <td><span class="tag tag-ok">OBJETIVO CUMPLIDO</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Interna HSEQ</strong></td>
-                                <td>Oportunidades Mejora</td>
-                                <td>8</td>
-                                <td><span class="tag tag-warn">100% EN PROCESO</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Externa (Bureau Veritas)</strong></td>
-                                <td>NC Mayores</td>
-                                <td>0</td>
-                                <td><span class="tag tag-ok">CERTIFICADO</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>NORSOK S-006</strong></td>
-                                <td>Cumplimiento</td>
-                                <td>95.38%</td>
-                                <td><span class="tag tag-ok">SOBRESALIENTE</span></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Estándares Mínimos</strong></td>
-                                <td>Res. 0312</td>
-                                <td>100%</td>
-                                <td><span class="tag tag-ok">CUMPLE TOTALMENTE</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <div class="card col-6">
+                    <div class="card-title">5.2 RESULTADOS DE AUDITORÍAS</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Fuente de Auditoría</th>
+                                <th>Tipo</th>
+                                <th>Cantidad</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Interna HSEQ</strong></td>
+                                <td>No Conformidades</td>
+                                <td>0</td>
+                                <td><span class="tag tag-ok">OBJETIVO CUMPLIDO</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Interna HSEQ</strong></td>
+                                <td>Oportunidades Mejora</td>
+                                <td>8</td>
+                                <td><span class="tag tag-warn">100% EN PROCESO</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Externa (Bureau Veritas)</strong></td>
+                                <td>NC Mayores</td>
+                                <td>0</td>
+                                <td><span class="tag tag-ok">CERTIFICADO</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>NORSOK S-006</strong></td>
+                                <td>Cumplimiento</td>
+                                <td>95.38%</td>
+                                <td><span class="tag tag-ok">SOBRESALIENTE</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Estándares Mínimos</strong></td>
+                                <td>Res. 0312</td>
+                                <td>100%</td>
+                                <td><span class="tag tag-ok">CUMPLE TOTALMENTE</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                <div class="card col-12">
-                    <div class="card-title">5.3 MATRIZ DETALLADA DE HALLAZGOS Y NO CONFORMIDADES</div>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Fuente del Hallazgo</th>
-                                <th>Sede / Operación</th>
-                                <th>Tipo de Hallazgo</th>
-                                <th>Cantidad</th>
-                                <th>Avance Cierres</th>
-                                <th>Estado / Comentario</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Auditoría CLIENTE</td>
-                                <td>San Carlos</td>
-                                <td>No Conformidad</td>
-                                <td>1</td>
-                                <td><span class="tag tag-err">0%</span></td>
-                                <td>ABIERTA. Riesgo Biológico (Fiebre Amarilla). Prioridad Alta.</td>
-                            </tr>
-                            <tr>
-                                <td>Auditoría INTERNA</td>
-                                <td>Administración</td>
-                                <td>Oportunidad Mejora</td>
-                                <td>7</td>
-                                <td><span class="tag tag-err">0%</span></td>
-                                <td>Pendientes. Hallazgos en Compras, Mantenimiento y HSEQ.</td>
-                            </tr>
-                            <tr>
-                                <td>Inspecciones SST</td>
-                                <td>Pta. Buenavista</td>
-                                <td>Hallazgos / Obs.</td>
-                                <td>11</td>
-                                <td><span class="tag tag-ok">91%</span></td>
-                                <td>Excelente Gestión (10 de 11 cerradas).</td>
-                            </tr>
-                            <tr>
-                                <td>Inspecciones SST</td>
-                                <td>Pta. Sinú 9</td>
-                                <td>Hallazgos / Obs.</td>
-                                <td>10</td>
-                                <td><span class="tag tag-err">20%</span></td>
-                                <td>Bajo Cierre. Se requiere apoyo operativo.</td>
-                            </tr>
-                            <tr>
-                                <td>Simulacros</td>
-                                <td>Pta. Sinú 9</td>
-                                <td>Oportunidad Mejora</td>
-                                <td>12</td>
-                                <td><span class="tag tag-err">8%</span></td>
-                                <td>Represado. 11 acciones abiertas post-simulacro.</td>
-                            </tr>
-                            <tr>
-                                <td>Simulacros</td>
-                                <td>Pta. Buenavista</td>
-                                <td>Oportunidad Mejora</td>
-                                <td>1</td>
-                                <td><span class="tag tag-ok">100%</span></td>
-                                <td>Cerrada eficazmente.</td>
-                            </tr>
-                            <tr>
-                                <td>Reporte Actos/Cond.</td>
-                                <td>Todas las Sedes</td>
-                                <td>Tarjetas / Reportes</td>
-                                <td>8</td>
-                                <td><span class="tag tag-ok">100%</span></td>
-                                <td>Gestión inmediata de reportes.</td>
-                            </tr>
-                            <tr>
-                                <td>Revisión Gerencial</td>
-                                <td>Administración</td>
-                                <td>Compromisos</td>
-                                <td>13</td>
-                                <td><span class="tag tag-warn">30%</span></td>
-                                <td>Acciones estratégicas en curso (largo plazo).</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="card col-12">
+                    <div class="card-title">5.3 MATRIZ DETALLADA DE HALLAZGOS Y NO CONFORMIDADES</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Fuente del Hallazgo</th>
+                                <th>Sede / Operación</th>
+                                <th>Tipo de Hallazgo</th>
+                                <th>Cantidad</th>
+                                <th>Avance Cierres</th>
+                                <th>Estado / Comentario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Auditoría CLIENTE</td>
+                                <td>San Carlos</td>
+                                <td>No Conformidad</td>
+                                <td>1</td>
+                                <td><span class="tag tag-err">0%</span></td>
+                                <td>ABIERTA. Riesgo Biológico (Fiebre Amarilla). Prioridad Alta.</td>
+                            </tr>
+                            <tr>
+                                <td>Auditoría INTERNA</td>
+                                <td>Administración</td>
+                                <td>Oportunidad Mejora</td>
+                                <td>7</td>
+                                <td><span class="tag tag-err">0%</span></td>
+                                <td>Pendientes. Hallazgos en Compras, Mantenimiento y HSEQ.</td>
+                            </tr>
+                            <tr>
+                                <td>Inspecciones SST</td>
+                                <td>Pta. Buenavista</td>
+                                <td>Hallazgos / Obs.</td>
+                                <td>11</td>
+                                <td><span class="tag tag-ok">91%</span></td>
+                                <td>Excelente Gestión (10 de 11 cerradas).</td>
+                            </tr>
+                            <tr>
+                                <td>Inspecciones SST</td>
+                                <td>Pta. Sinú 9</td>
+                                <td>Hallazgos / Obs.</td>
+                                <td>10</td>
+                                <td><span class="tag tag-err">20%</span></td>
+                                <td>Bajo Cierre. Se requiere apoyo operativo.</td>
+                            </tr>
+                            <tr>
+                                <td>Simulacros</td>
+                                <td>Pta. Sinú 9</td>
+                                <td>Oportunidad Mejora</td>
+                                <td>12</td>
+                                <td><span class="tag tag-err">8%</span></td>
+                                <td>Represado. 11 acciones abiertas post-simulacro.</td>
+                            </tr>
+                            <tr>
+                                <td>Simulacros</td>
+                                <td>Pta. Buenavista</td>
+                                <td>Oportunidad Mejora</td>
+                                <td>1</td>
+                                <td><span class="tag tag-ok">100%</span></td>
+                                <td>Cerrada eficazmente.</td>
+                            </tr>
+                            <tr>
+                                <td>Reporte Actos/Cond.</td>
+                                <td>Todas las Sedes</td>
+                                <td>Tarjetas / Reportes</td>
+                                <td>8</td>
+                                <td><span class="tag tag-ok">100%</span></td>
+                                <td>Gestión inmediata de reportes.</td>
+                            </tr>
+                            <tr>
+                                <td>Revisión Gerencial</td>
+                                <td>Administración</td>
+                                <td>Compromisos</td>
+                                <td>13</td>
+                                <td><span class="tag tag-warn">30%</span></td>
+                                <td>Acciones estratégicas en curso (largo plazo).</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                    <div style="margin-top:20px; padding:15px; background:#f8fafc; border-radius:4px;">
-                        <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">Resumen de Eficacia 2025</h4>
-                        <div class="grid-container">
-                            <div class="col-3 kpi-box">
-                                <div class="kpi-sub">TOTAL ACCIONES</div>
-                                <div class="kpi-val">83</div>
-                            </div>
-                            <div class="col-3 kpi-box">
-                                <div class="kpi-sub">CERRADAS</div>
-                                <div class="kpi-val" style="color:var(--success)">33</div>
-                            </div>
-                            <div class="col-3 kpi-box">
-                                <div class="kpi-sub">ABIERTAS</div>
-                                <div class="kpi-val" style="color:var(--warning)">50</div>
-                            </div>
-                            <div class="col-3 kpi-box">
-                                <div class="kpi-sub">% EFICACIA</div>
-                                <div class="kpi-val" style="color:var(--warning)">39.8%</div>
-                            </div>
-                        </div>
-                        <p style="font-size:12px; margin-top:10px; color:#991b1b;">
-                            <strong>⚠️ Desviación:</strong> El nivel de cierre es bajo debido a la carga operativa en Sinú 9. Se establece como meta prioritaria el cierre de hallazgos vencidos para Marzo 2026.
-                        </p>
-                    </div>
-                </div>
+                    <div style="margin-top:20px; padding:15px; background:#f8fafc; border-radius:4px;">
+                        <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">Resumen de Eficacia 2025</h4>
+                        <div class="grid-container">
+                            <div class="col-3 kpi-box">
+                                <div class="kpi-sub">TOTAL ACCIONES</div>
+                                <div class="kpi-val">83</div>
+                            </div>
+                            <div class="col-3 kpi-box">
+                                <div class="kpi-sub">CERRADAS</div>
+                                <div class="kpi-val" style="color:var(--success)">33</div>
+                            </div>
+                            <div class="col-3 kpi-box">
+                                <div class="kpi-sub">ABIERTAS</div>
+                                <div class="kpi-val" style="color:var(--warning)">50</div>
+                            </div>
+                            <div class="col-3 kpi-box">
+                                <div class="kpi-sub">% EFICACIA</div>
+                                <div class="kpi-val" style="color:var(--warning)">39.8%</div>
+                            </div>
+                        </div>
+                        <p style="font-size:12px; margin-top:10px; color:#991b1b;">
+                            <strong>⚠️ Desviación:</strong> El nivel de cierre es bajo debido a la carga operativa en Sinú 9. Se establece como meta prioritaria el cierre de hallazgos vencidos para Marzo 2026.
+                        </p>
+                    </div>
+                </div>
 
-                <div class="card col-12">
-                    <div class="card-title">HALLAZGOS CRÍTICOS POR SEDE - DETALLE ESPECÍFICO</div>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Sede / Proyecto</th>
-                                <th>Inspecciones</th>
-                                <th>Mediciones Higiénicas</th>
-                                <th>Hallazgos Críticos Abiertos</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>SINÚ 9 / EVECA</strong></td>
-                                <td><span class="tag tag-err">20% CIERRE</span> (Bajo)</td>
-                                <td><span class="tag tag-ok">REALIZADAS</span></td>
-                                <td>Represamiento de acciones post-simulacro. 100% Cumplimiento en inspecciones sin hallazgos críticos.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>BUENAVISTA</strong></td>
-                                <td><span class="tag tag-ok">91% CIERRE</span></td>
-                                <td><span class="tag tag-ok">REALIZADAS</span></td>
-                                <td>1 Hallazgo pendiente (Locativo Contenedor). 13 de 14 hallazgos cerrados.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>CORRALES</strong></td>
-                                <td><span class="tag tag-ok">100% EJECUCIÓN</span></td>
-                                <td><span class="tag tag-err">PENDIENTE</span></td>
-                                <td><span class="tag tag-err">CRÍTICO:</span> Falta dotación específica de invierno y certificación de alturas.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>LA PAZ</strong></td>
-                                <td><span class="tag tag-ok">100% EJECUCIÓN</span></td>
-                                <td><span class="tag tag-err">PENDIENTE</span></td>
-                                <td>1 Hallazgo abierto (Falta Lavaojos en zona de aceites). Incumplimiento ASETCO (Alcoholimetría).</td>
-                            </tr>
-                            <tr>
-                                <td><strong>SAN CARLOS</strong></td>
-                                <td><span class="tag tag-info">AUDITORÍA CLIENTE</span></td>
-                                <td>N/A</td>
-                                <td><span class="tag tag-err">NC ABIERTA:</span> Riesgo Biológico (Fiebre Amarilla) - Prioridad Alta.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+                <div class="card col-12">
+                    <div class="card-title">HALLAZGOS CRÍTICOS POR SEDE - DETALLE ESPECÍFICO</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Sede / Proyecto</th>
+                                <th>Inspecciones</th>
+                                <th>Mediciones Higiénicas</th>
+                                <th>Hallazgos Críticos Abiertos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>SINÚ 9 / EVECA</strong></td>
+                                <td><span class="tag tag-err">20% CIERRE</span> (Bajo)</td>
+                                <td><span class="tag tag-ok">REALIZADAS</span></td>
+                                <td>Represamiento de acciones post-simulacro. 100% Cumplimiento en inspecciones sin hallazgos críticos.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>BUENAVISTA</strong></td>
+                                <td><span class="tag tag-ok">91% CIERRE</span></td>
+                                <td><span class="tag tag-ok">REALIZADAS</span></td>
+                                <td>1 Hallazgo pendiente (Locativo Contenedor). 13 de 14 hallazgos cerrados.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CORRALES</strong></td>
+                                <td><span class="tag tag-ok">100% EJECUCIÓN</span></td>
+                                <td><span class="tag tag-err">PENDIENTE</span></td>
+                                <td><span class="tag tag-err">CRÍTICO:</span> Falta dotación específica de invierno y certificación de alturas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>LA PAZ</strong></td>
+                                <td><span class="tag tag-ok">100% EJECUCIÓN</span></td>
+                                <td><span class="tag tag-err">PENDIENTE</span></td>
+                                <td>1 Hallazgo abierto (Falta Lavaojos en zona de aceites). Incumplimiento ASETCO (Alcoholimetría).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SAN CARLOS</strong></td>
+                                <td><span class="tag tag-info">AUDITORÍA CLIENTE</span></td>
+                                <td>N/A</td>
+                                <td><span class="tag tag-err">NC ABIERTA:</span> Riesgo Biológico (Fiebre Amarilla) - Prioridad Alta.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-        <div id="sec6" class="section-view">
-            <div class="card" style="border: 2px solid var(--primary);">
-                <div class="card-title" style="color:var(--primary); font-size:14px;">6. SALIDAS DE LA REVISIÓN: DECISIONES Y MEJORA</div>
-                
-                <h4 style="font-size:13px; margin:15px 0 10px 0; color:#334155;">6.1 OPORTUNIDADES DE MEJORA Y DECISIONES ESTRATÉGICAS</h4>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Proceso Responsable</th>
-                            <th>Decisión / Acción Estratégica</th>
-                            <th>Justificación (Origen)</th>
-                            <th>Recurso / Plazo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>OPERACIONES</strong></td>
-                            <td>Implementación Mantenimiento Predictivo: Desarrollar y ejecutar plan basado en condición y optimizar stock de repuestos críticos.</td>
-                            <td>Solicitud Cliente INFRAES (Num. 4.1)</td>
-                            <td><span class="tag tag-ok">APROBADO Q1-2026</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>HSEQ / COMPRAS</strong></td>
-                            <td>Compra Inmediata: Dotación específica invierno (Corrales), Certificación Alturas y Lavaojos (La Paz).</td>
-                            <td>Hallazgos Críticos Sección 5.3</td>
-                            <td><span class="tag tag-ok">APROBADO</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>HSEQ</strong></td>
-                            <td>Mediciones Higiénicas: Ejecutar en Corrales, La Paz y EVECA.</td>
-                            <td>Incumplimiento Legal (Sección 4.4)</td>
-                            <td><span class="tag tag-ok">APROBADO FEB-2026</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>GESTIÓN HUMANA</strong></td>
-                            <td>Formalización Teletrabajo y Vacunación Fiebre Amarilla (San Carlos).</td>
-                            <td>Requisito Legal + NC Cliente</td>
-                            <td><span class="tag tag-ok">APROBADO</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>HSEQ / OPERACIONES</strong></td>
-                            <td>Plan de Cierre Acelerado: Priorizar cierre de hallazgos vencidos en Sinú 9.</td>
-                            <td>Baja eficacia de cierre (39.8%)</td>
-                            <td><span class="tag tag-warn">META: MAR-2026</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div id="sec6" class="section-view">
+            <div class="card" style="border: 2px solid var(--primary);">
+                <div class="card-title" style="color:var(--primary); font-size:14px;">6. SALIDAS DE LA REVISIÓN: DECISIONES Y MEJORA</div>
+                
+                <h4 style="font-size:13px; margin:15px 0 10px 0; color:#334155;">6.1 OPORTUNIDADES DE MEJORA Y DECISIONES ESTRATÉGICAS</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Proceso Responsable</th>
+                            <th>Decisión / Acción Estratégica</th>
+                            <th>Justificación (Origen)</th>
+                            <th>Recurso / Plazo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>OPERACIONES</strong></td>
+                            <td>Implementación Mantenimiento Predictivo: Desarrollar y ejecutar plan basado en condición y optimizar stock de repuestos críticos.</td>
+                            <td>Solicitud Cliente INFRAES (Num. 4.1)</td>
+                            <td><span class="tag tag-ok">APROBADO Q1-2026</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>HSEQ / COMPRAS</strong></td>
+                            <td>Compra Inmediata: Dotación específica invierno (Corrales), Certificación Alturas y Lavaojos (La Paz).</td>
+                            <td>Hallazgos Críticos Sección 5.3</td>
+                            <td><span class="tag tag-ok">APROBADO</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>HSEQ</strong></td>
+                            <td>Mediciones Higiénicas: Ejecutar en Corrales, La Paz y EVECA.</td>
+                            <td>Incumplimiento Legal (Sección 4.4)</td>
+                            <td><span class="tag tag-ok">APROBADO FEB-2026</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>GESTIÓN HUMANA</strong></td>
+                            <td>Formalización Teletrabajo y Vacunación Fiebre Amarilla (San Carlos).</td>
+                            <td>Requisito Legal + NC Cliente</td>
+                            <td><span class="tag tag-ok">APROBADO</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>HSEQ / OPERACIONES</strong></td>
+                            <td>Plan de Cierre Acelerado: Priorizar cierre de hallazgos vencidos en Sinú 9.</td>
+                            <td>Baja eficacia de cierre (39.8%)</td>
+                            <td><span class="tag tag-warn">META: MAR-2026</span></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">6.2 ASIGNACIÓN DE RECURSOS 2026</h4>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Tipo de Recurso</th>
-                            <th>Descripción de la Necesidad / Cambio Requerido</th>
-                            <th>Decisión</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Infraestructura y Tecnología</strong></td>
-                            <td>Compra de repuestos críticos para mantenimiento predictivo, adecuación servidores, continuidad herramientas digitales.</td>
-                            <td><span class="tag tag-ok">APROBADO</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Talento Humano</strong></td>
-                            <td>Continuidad de planta de personal actual y ejecución del Plan de Capacitación 2026.</td>
-                            <td><span class="tag tag-ok">APROBADO</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Presupuesto HSEQ</strong></td>
-                            <td>Ejecución plan anual: EPP, exámenes médicos, mediciones higiénicas, dotación específica, simulacros.</td>
-                            <td><span class="tag tag-ok">APROBADO</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Asesoría Externa</strong></td>
-                            <td>Soporte especializado para certificación BCP y fortalecimiento competencias digitales.</td>
-                            <td><span class="tag tag-info">EN EVALUACIÓN</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">6.2 ASIGNACIÓN DE RECURSOS 2026</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tipo de Recurso</th>
+                            <th>Descripción de la Necesidad / Cambio Requerido</th>
+                            <th>Decisión</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Infraestructura y Tecnología</strong></td>
+                            <td>Compra de repuestos críticos para mantenimiento predictivo, adecuación servidores, continuidad herramientas digitales.</td>
+                            <td><span class="tag tag-ok">APROBADO</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Talento Humano</strong></td>
+                            <td>Continuidad de planta de personal actual y ejecución del Plan de Capacitación 2026.</td>
+                            <td><span class="tag tag-ok">APROBADO</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Presupuesto HSEQ</strong></td>
+                            <td>Ejecución plan anual: EPP, exámenes médicos, mediciones higiénicas, dotación específica, simulacros.</td>
+                            <td><span class="tag tag-ok">APROBADO</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Asesoría Externa</strong></td>
+                            <td>Soporte especializado para certificación BCP y fortalecimiento competencias digitales.</td>
+                            <td><span class="tag tag-info">EN EVALUACIÓN</span></td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                <div style="background:#f1f5f9; padding:20px; text-align:center; margin-top:30px; border-radius:8px; border:2px solid var(--primary);">
-                    <h3 style="font-size:18px; margin-bottom:15px; color:var(--primary);">6.3 CONCLUSIÓN DE LA GERENCIA</h3>
-                    <p style="font-size:15px; color:#475569; line-height:1.6;">
-                        La Gerencia General concluye que el Sistema Integrado de Gestión de <strong>PETROLEUM BLENDING INTERNATIONAL SAS ESP</strong> es:
-                    </p>
-                    <div style="display:flex; justify-content:center; gap:20px; margin-top:20px;">
-                        <div style="background:white; padding:15px 25px; border-radius:8px; border:2px solid var(--success);">
-                            <strong style="color:var(--success);">✓ CONVENIENTE</strong><br>
-                            <span style="font-size:11px;">Se ajusta a la cultura y estrategia</span>
-                        </div>
-                        <div style="background:white; padding:15px 25px; border-radius:8px; border:2px solid var(--success);">
-                            <strong style="color:var(--success);">✓ ADECUADO</strong><br>
-                            <span style="font-size:11px;">Cumple requisitos legales y normativos</span>
-                        </div>
-                        <div style="background:white; padding:15px 25px; border-radius:8px; border:2px solid var(--success);">
-                            <strong style="color:var(--success);">✓ EFICAZ</strong><br>
-                            <span style="font-size:11px;">Logra resultados planificados</span>
-                        </div>
-                    </div>
-                    <p style="font-size:13px; color:#64748b; margin-top:15px; font-style:italic;">
-                        "El SIG se encuentra alineado con la estrategia de transformación digital y los objetivos ESG de la organización."
-                    </p>
-                </div>
+                <div style="background:#f1f5f9; padding:20px; text-align:center; margin-top:30px; border-radius:8px; border:2px solid var(--primary);">
+                    <h3 style="font-size:18px; margin-bottom:15px; color:var(--primary);">6.3 CONCLUSIÓN DE LA GERENCIA</h3>
+                    <p style="font-size:15px; color:#475569; line-height:1.6;">
+                        La Gerencia General concluye que el Sistema Integrado de Gestión de <strong>PETROLEUM BLENDING INTERNATIONAL SAS ESP</strong> es:
+                    </p>
+                    <div style="display:flex; justify-content:center; gap:20px; margin-top:20px;">
+                        <div style="background:white; padding:15px 25px; border-radius:8px; border:2px solid var(--success);">
+                            <strong style="color:var(--success);">✓ CONVENIENTE</strong><br>
+                            <span style="font-size:11px;">Se ajusta a la cultura y estrategia</span>
+                        </div>
+                        <div style="background:white; padding:15px 25px; border-radius:8px; border:2px solid var(--success);">
+                            <strong style="color:var(--success);">✓ ADECUADO</strong><br>
+                            <span style="font-size:11px;">Cumple requisitos legales y normativos</span>
+                        </div>
+                        <div style="background:white; padding:15px 25px; border-radius:8px; border:2px solid var(--success);">
+                            <strong style="color:var(--success);">✓ EFICAZ</strong><br>
+                            <span style="font-size:11px;">Logra resultados planificados</span>
+                        </div>
+                    </div>
+                    <p style="font-size:13px; color:#64748b; margin-top:15px; font-style:italic;">
+                        "El SIG se encuentra alineado con la estrategia de transformación digital y los objetivos ESG de la organización."
+                    </p>
+                </div>
 
-                <div class="signature-box">
-                    <div class="sign-line">
-                        GERENTE GENERAL<br>
-                        <span style="font-weight:400; font-size:10px;">Luis Eduardo Henriquez</span><br>
-                        <span style="font-weight:400; font-size:10px;">Representante Legal</span>
-                    </div>
-                    <div class="sign-line">
-                        DIRECTOR HSEQ<br>
-                        <span style="font-weight:400; font-size:10px;">Carlos Esteban</span><br>
-                        <span style="font-weight:400; font-size:10px;">Responsable del SIG</span>
-                    </div>
-                </div>
+                <div class="signature-box">
+                    <div class="sign-line">
+                        GERENTE GENERAL<br>
+                        <span style="font-weight:400; font-size:10px;">Luis Eduardo Henriquez</span><br>
+                        <span style="font-weight:400; font-size:10px;">Representante Legal</span>
+                    </div>
+                    <div class="sign-line">
+                        DIRECTOR HSEQ<br>
+                        <span style="font-weight:400; font-size:10px;">Carlos Esteban</span><br>
+                        <span style="font-weight:400; font-size:10px;">Responsable del SIG</span>
+                    </div>
+                </div>
 
-                <div style="margin-top:30px; padding-top:20px; border-top:1px solid #e2e8f0; font-size:11px; color:#64748b;">
-                    <div style="display:flex; justify-content:space-between;">
-                        <div>
-                            <strong>Elaboró:</strong> COORDINADOR HSEQ<br>
-                            <strong>Revisó:</strong> DIRECTOR HSEQ/COORDINADOR HSEQ<br>
-                            <strong>Fecha:</strong> 26/01/2026
-                        </div>
-                        <div style="text-align:right;">
-                            <strong>Aprobó:</strong> GERENCIA GENERAL<br>
-                            <strong>Fecha:</strong> 26/01/2026
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <div style="margin-top:30px; padding-top:20px; border-top:1px solid #e2e8f0; font-size:11px; color:#64748b;">
+                    <div style="display:flex; justify-content:space-between;">
+                        <div>
+                            <strong>Elaboró:</strong> COORDINADOR HSEQ<br>
+                            <strong>Revisó:</strong> DIRECTOR HSEQ/COORDINADOR HSEQ<br>
+                            <strong>Fecha:</strong> 26/01/2026
+                        </div>
+                        <div style="text-align:right;">
+                            <strong>Aprobó:</strong> GERENCIA GENERAL<br>
+                            <strong>Fecha:</strong> 26/01/2026
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    </div>
+    </div>
 
-    <script>
-        // Navegación
-        function navigate(secIndex, btn) {
-            document.querySelectorAll('.section-view').forEach(el => el.classList.remove('active'));
-            document.getElementById('sec' + secIndex).classList.add('active');
-            
-            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-            btn.classList.add('active');
-        }
+    <script>
+        // Navegación
+        function navigate(secIndex, btn) {
+            document.querySelectorAll('.section-view').forEach(el => el.classList.remove('active'));
+            document.getElementById('sec' + secIndex).classList.add('active');
+            
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            btn.classList.add('active');
+        }
 
-        // Gráficas
-        window.onload = function() {
-            // Gráfica de Consumo de Agua
-            const ctxAgua = document.getElementById('chartAgua');
-            if (ctxAgua) {
-                new Chart(ctxAgua.getContext('2d'), {
-                    type: 'line',
-                    data: {
-                        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-                        datasets: [{
-                            label: 'Consumo 2025 (m³)',
-                            data: [285, 268, 275, 262, 255, 248, 242, 238, 245, 252, 240, 235],
-                            borderColor: '#0ea5e9',
-                            backgroundColor: 'rgba(14, 165, 233, 0.1)',
-                            tension: 0.4,
-                            fill: true
-                        }, {
-                            label: 'Meta (m³)',
-                            data: [300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300],
-                            borderColor: '#ef4444',
-                            borderDash: [5, 5],
-                            borderWidth: 2,
-                            fill: false,
-                            pointRadius: 0
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { 
-                                display: true,
-                                position: 'top',
-                                labels: { font: { size: 11 } }
-                            },
-                            title: {
-                                display: false
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                ticks: { font: { size: 10 } }
-                            },
-                            x: {
-                                ticks: { font: { size: 10 } }
-                            }
-                        }
-                    }
-                });
-            }
+        // Gráficas
+        window.onload = function() {
+            // Gráfica de Consumo de Agua
+            const ctxAgua = document.getElementById('chartAgua');
+            if (ctxAgua) {
+                new Chart(ctxAgua.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                        datasets: [{
+                            label: 'Consumo 2025 (m³)',
+                            data: [285, 268, 275, 262, 255, 248, 242, 238, 245, 252, 240, 235],
+                            borderColor: '#0ea5e9',
+                            backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }, {
+                            label: 'Meta (m³)',
+                            data: [300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300, 300],
+                            borderColor: '#ef4444',
+                            borderDash: [5, 5],
+                            borderWidth: 2,
+                            fill: false,
+                            pointRadius: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { 
+                                display: true,
+                                position: 'top',
+                                labels: { font: { size: 11 } }
+                            },
+                            title: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: { font: { size: 10 } }
+                            },
+                            x: {
+                                ticks: { font: { size: 10 } }
+                            }
+                        }
+                    }
+                });
+            }
 
-            // Gráfica de Gestión de Residuos
-            const ctxResiduos = document.getElementById('chartResiduos');
-            if (ctxResiduos) {
-                new Chart(ctxResiduos.getContext('2d'), {
-                    type: 'bar',
-                    data: {
-                        labels: ['Reciclables', 'Orgánicos', 'Peligrosos', 'Ordinarios', 'Chatarra'],
-                        datasets: [{
-                            label: '2024 (Kg)',
-                            data: [3200, 1850, 2400, 4500, 5800],
-                            backgroundColor: 'rgba(100, 116, 139, 0.6)',
-                            borderColor: '#64748b',
-                            borderWidth: 1
-                        }, {
-                            label: '2025 (Kg)',
-                            data: [3850, 2100, 2400, 4200, 7200],
-                            backgroundColor: 'rgba(16, 185, 129, 0.6)',
-                            borderColor: '#10b981',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { 
-                                display: true,
-                                position: 'top',
-                                labels: { font: { size: 11 } }
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                ticks: { font: { size: 10 } }
-                            },
-                            x: {
-                                ticks: { font: { size: 10 } }
-                            }
-                        }
-                    }
-                });
-            }
-        
-            // --- GRÁFICA DE RIESGOS (CONSOLIDADO TOTAL 78 RIESGOS) ---
-            const ctxRiesgos = document.getElementById('chartRiesgos');
-            if (ctxRiesgos) {
-                new Chart(ctxRiesgos.getContext('2d'), {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Bajo (35)', 'Moderado (23)', 'Alto (16)', 'Extremo (4)'],
-                        datasets: [{
-                            data: [35, 23, 16, 4],
-                            backgroundColor: ['#10b981', '#f59e0b', '#f97316', '#ef4444'],
-                            borderWidth: 0
-                        }]
-                    },
-                    options: {
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { position: 'right', labels: { boxWidth: 10, font: { size: 9 } } }
-                        }
-                    }
-                });
-            }
-        };
-    </script>
+            // Gráfica de Gestión de Residuos
+            const ctxResiduos = document.getElementById('chartResiduos');
+            if (ctxResiduos) {
+                new Chart(ctxResiduos.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Reciclables', 'Orgánicos', 'Peligrosos', 'Ordinarios', 'Chatarra'],
+                        datasets: [{
+                            label: '2024 (Kg)',
+                            data: [3200, 1850, 2400, 4500, 5800],
+                            backgroundColor: 'rgba(100, 116, 139, 0.6)',
+                            borderColor: '#64748b',
+                            borderWidth: 1
+                        }, {
+                            label: '2025 (Kg)',
+                            data: [3850, 2100, 2400, 4200, 7200],
+                            backgroundColor: 'rgba(16, 185, 129, 0.6)',
+                            borderColor: '#10b981',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { 
+                                display: true,
+                                position: 'top',
+                                labels: { font: { size: 11 } }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: { font: { size: 10 } }
+                            },
+                            x: {
+                                ticks: { font: { size: 10 } }
+                            }
+                        }
+                    }
+                });
+            }
+        
+            // --- GRÁFICA DE RIESGOS (CONSOLIDADO TOTAL 78 RIESGOS) ---
+            const ctxRiesgos = document.getElementById('chartRiesgos');
+            if (ctxRiesgos) {
+                new Chart(ctxRiesgos.getContext('2d'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Bajo (35)', 'Moderado (23)', 'Alto (16)', 'Extremo (4)'],
+                        datasets: [{
+                            data: [35, 23, 16, 4],
+                            backgroundColor: ['#10b981', '#f59e0b', '#f97316', '#ef4444'],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'right', labels: { boxWidth: 10, font: { size: 9 } } }
+                        }
+                    }
+                });
+            }
+        };
+    </script>
 </body>
 </html>
