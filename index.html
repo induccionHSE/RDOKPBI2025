@@ -14,7 +14,7 @@
             /* COLORES CORPORATIVOS */
             --primary: #003366;      /* Azul Oscuro Institucional */
             --secondary: #00509d;    /* Azul Medio */
-            --accent: #f59d2c;    /* Dorado/Amarillo Seguridad */
+            --accent: #f59d2c;       /* Dorado/Amarillo Seguridad */
             --text-dark: #1e293b;
             --text-light: #f8fafc;
             --bg-body: #f1f5f9;
@@ -34,6 +34,12 @@
             overflow: hidden;
         }
 
+        /* --- SCROLLBAR PERSONALIZADO --- */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
         /* --- SIDEBAR DE NAVEGACIÓN --- */
         .sidebar {
             width: 320px;
@@ -42,6 +48,7 @@
             display: flex; flex-direction: column;
             box-shadow: 4px 0 15px rgba(0,0,0,0.1);
             z-index: 100;
+            flex-shrink: 0;
         }
 
         .logo-area {
@@ -51,7 +58,6 @@
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         
-        /* AQUI VA TU LOGO */
         .logo-img {
             max-width: 180px;
             height: auto;
@@ -70,13 +76,13 @@
         .nav-item {
             padding: 15px 25px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             border-left: 4px solid transparent;
             font-size: 14px;
             display: flex; align-items: center; gap: 10px;
             color: rgba(255,255,255,0.7);
         }
-        .nav-item:hover { background: rgba(255,255,255,0.05); color: white; }
+        .nav-item:hover { background: rgba(255,255,255,0.05); color: white; padding-left: 30px; }
         .nav-item.active {
             background: rgba(0,0,0,0.2);
             border-left-color: var(--accent);
@@ -99,6 +105,7 @@
             padding: 40px;
             overflow-y: auto;
             position: relative;
+            scroll-behavior: smooth;
         }
 
         /* Encabezado de Página */
@@ -106,15 +113,33 @@
             display: flex; justify-content: space-between; align-items: center;
             margin-bottom: 30px; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px;
         }
-        .doc-title h1 { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--primary); letter-spacing: 1px; }
+        .doc-title h1 { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--primary); letter-spacing: 1px; margin-bottom: 5px; }
         .doc-title span { font-family: 'Roboto', sans-serif; font-size: 14px; color: #64748b; font-weight: 500; }
         
+        .header-actions { display: flex; gap: 10px; align-items: center; }
+
         .status-pill {
             background: #dcfce7; color: #166534;
             padding: 8px 16px; border-radius: 20px;
             font-size: 12px; font-weight: 700;
             border: 1px solid #bbf7d0; display: flex; align-items: center; gap: 6px;
         }
+
+        .btn-pdf {
+            background: var(--danger); 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 20px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            box-shadow: 0 4px 6px rgba(239, 68, 68, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-pdf:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(239, 68, 68, 0.4); }
 
         /* Estilos de Tarjetas y Grid */
         .section-view { display: none; animation: fadeIn 0.4s ease; }
@@ -134,7 +159,13 @@
             background: white; border-radius: 8px; padding: 25px;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0; height: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
         .card-title {
             font-size: 12px; font-weight: 800; text-transform: uppercase; color: #64748b;
             margin-bottom: 15px; letter-spacing: 0.5px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px;
@@ -142,9 +173,10 @@
 
         /* Tablas */
         .data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        .data-table th { text-align: left; padding: 10px; background: #f8fafc; color: #475569; border-bottom: 2px solid #e2e8f0; }
+        .data-table th { text-align: left; padding: 12px 10px; background: #f8fafc; color: #475569; border-bottom: 2px solid #e2e8f0; font-weight: 600; }
         .data-table td { padding: 10px; border-bottom: 1px solid #f1f5f9; color: #334155; vertical-align: middle; }
         .data-table tr:last-child td { border-bottom: none; }
+        .data-table tr:hover td { background-color: #f8fafc; }
 
         /* Etiquetas de Estado */
         .tag { padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; display: inline-block; }
@@ -154,12 +186,13 @@
         .tag-info { background: #e0f2fe; color: #075985; }
 
         /* Elementos Específicos */
-        .info-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+        .info-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 4px; }
+        .info-row:last-child { border-bottom: none; }
         .info-label { font-weight: 600; color: #475569; }
         
         .kpi-box { text-align: center; padding: 10px; }
         .kpi-val { font-size: 36px; font-weight: 900; color: var(--primary); line-height: 1; margin: 5px 0; }
-        .kpi-sub { font-size: 11px; color: #64748b; }
+        .kpi-sub { font-size: 11px; color: #64748b; font-weight: 500; text-transform: uppercase; }
 
         .dofa-item { padding: 10px; margin-bottom: 8px; border-radius: 6px; font-size: 12px; }
         .dofa-green { background: #f0fdf4; border-left: 3px solid var(--success); }
@@ -168,103 +201,46 @@
         /* Firmas */
         .signature-box { margin-top: 40px; display: flex; justify-content: center; gap: 60px; }
         .sign-line { border-top: 1px solid #334155; width: 220px; padding-top: 10px; text-align: center; font-size: 12px; font-weight: bold; }
-/* =========================================
-       DISEÑO RESPONSIVO (MÓVIL)
-       ========================================= */
-    @media (max-width: 768px) {
-        
-        /* 1. Cambiar la estructura principal de lado a lado -> vertical */
-        body {
-            flex-direction: column;
-            height: auto; /* Permitir scroll normal */
-            overflow-y: auto;
-        }
 
-        /* 2. Ajustar la barra lateral para que sea un encabezado superior */
-        .sidebar {
-            width: 100%;
-            height: auto;
-            position: relative;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        /* =========================================
+           DISEÑO RESPONSIVO (MÓVIL)
+           ========================================= */
+        @media (max-width: 768px) {
+            body { flex-direction: column; height: auto; overflow-y: auto; }
+            
+            .sidebar { width: 100%; height: auto; position: relative; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+            
+            .nav-menu {
+                display: flex; overflow-x: auto; padding: 10px;
+                white-space: nowrap; -webkit-overflow-scrolling: touch;
+            }
+            
+            .nav-item {
+                padding: 10px 15px; border-left: none; border-bottom: 3px solid transparent;
+                font-size: 12px;
+            }
+            .nav-item:hover { padding-left: 15px; } /* Reset hover effect on mobile */
+            .nav-item.active { background: rgba(0,0,0,0.2); border-left-color: transparent; border-bottom-color: var(--accent); }
+            
+            .footer-info { display: none; }
+            .logo-area { padding: 15px; }
+            .logo-img { max-width: 120px; }
+            
+            .main { padding: 15px; width: 100%; overflow: visible; }
+            
+            .page-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .header-actions { width: 100%; flex-wrap: wrap; }
+            .doc-title h1 { font-size: 28px; }
+            
+            .grid-container { display: flex; flex-direction: column; gap: 15px; }
+            [class*="col-"] { width: 100%; grid-column: span 12 !important; }
+            
+            .card { padding: 15px; overflow-x: auto; }
+            .data-table { min-width: 600px; }
+            
+            .signature-box { flex-direction: column; gap: 40px; align-items: center; }
+            canvas { max-height: 200px; }
         }
-
-        /* Hacer el menú navegable horizontalmente con el dedo */
-        .nav-menu {
-            display: flex;
-            overflow-x: auto; /* Scroll horizontal */
-            padding: 10px;
-            white-space: nowrap; /* Que los ítems no se partan */
-            -webkit-overflow-scrolling: touch; /* Suavidad en iPhone */
-        }
-
-        .nav-item {
-            padding: 10px 15px;
-            border-left: none;
-            border-bottom: 3px solid transparent; /* Indicador abajo en vez de al lado */
-            font-size: 12px;
-        }
-
-        .nav-item.active {
-            background: rgba(0,0,0,0.2);
-            border-left-color: transparent;
-            border-bottom-color: var(--accent);
-        }
-
-        /* Ocultar info del footer del sidebar para ahorrar espacio */
-        .footer-info { display: none; }
-        .logo-area { padding: 15px; }
-        .logo-img { max-width: 120px; }
-
-        /* 3. Ajustar el contenedor principal */
-        .main {
-            padding: 15px; /* Menos relleno a los lados */
-            width: 100%;
-            overflow: visible;
-        }
-
-        /* Encabezado del documento */
-        .page-header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        .doc-title h1 { font-size: 28px; } /* Título más pequeño */
-
-        /* 4. ROMPER EL GRID: Que todo ocupe el 100% del ancho */
-        .grid-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        /* Forzar a cualquier columna (col-3, col-6, etc.) a ser ancho completo */
-        [class*="col-"] {
-            width: 100%;
-            grid-column: span 12 !important;
-        }
-
-        /* 5. Manejo de TABLAS en celular (Crucial) */
-        .card {
-            padding: 15px;
-            overflow-x: auto; /* Permite deslizar la tabla si no cabe */
-        }
-        
-        .data-table {
-            min-width: 600px; /* Fuerza un ancho mínimo para que la tabla no se aplaste */
-        }
-
-        /* 6. Ajustar las firmas */
-        .signature-box {
-            flex-direction: column;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        /* Ajustar gráficas */
-        canvas {
-            max-height: 200px;
-        }
-    }
     </style>
 </head>
 <body>
@@ -305,22 +281,22 @@
     </div>
 
     <div class="main">
-       <div class="page-header">
-    <div class="doc-title">
-        <h1>Acta de Revisión Gerencial</h1>
-        <span>Evaluación del Periodo: Enero 2025 – Diciembre 2025</span>
-    </div>
-    
-    <div style="display:flex; gap:10px; align-items:center;">
-        <div class="status-pill"><i class="fa-solid fa-check"></i> ESTADO: FINALIZADA</div>
-        
-        <a href="https://docs.google.com/document/d/1C4wzN5Sod4KkGBQLh_dnvWYG6yrwqxFcXntGLGCA12g/edit?usp=sharing" target="_blank" style="text-decoration:none;">
-            <button style="background:var(--danger); color:white; border:none; padding:10px 20px; border-radius:20px; cursor:pointer; font-weight:bold; display:flex; align-items:center; gap:8px; box-shadow:0 4px 6px rgba(239, 68, 68, 0.3);">
-                <i class="fa-solid fa-file-pdf"></i> Ver Acta revisión PDF
-            </button>
-        </a>
-    </div>
-</div>
+        <div class="page-header">
+            <div class="doc-title">
+                <h1>Acta de Revisión Gerencial</h1>
+                <span>Evaluación del Periodo: Enero 2025 – Diciembre 2025</span>
+            </div>
+            
+            <div class="header-actions">
+                <div class="status-pill"><i class="fa-solid fa-check"></i> ESTADO: FINALIZADA</div>
+                
+                <a href="https://docs.google.com/document/d/1C4wzN5Sod4KkGBQLh_dnvWYG6yrwqxFcXntGLGCA12g/edit?usp=sharing" target="_blank" style="text-decoration:none;">
+                    <button class="btn-pdf">
+                        <i class="fa-solid fa-file-pdf"></i> Ver Acta revisión PDF
+                    </button>
+                </a>
+            </div>
+        </div>
 
         <div id="sec1" class="section-view active">
             <div class="grid-container">
@@ -419,87 +395,88 @@
             </div>
         </div>
 
-     <div id="sec3" class="section-view">
-    <div class="grid-container">
-        <div class="card col-12">
-            <div class="card-title">3. ENTRADAS ESTRATÉGICAS: PLANIFICACIÓN Y CONTEXTO</div>
-            <p style="font-size:12px; margin-bottom:15px; color:#64748b;"><strong>Referencia:</strong> ISO 9001 (9.3.2 b), ISO 14001 (9.3 b), ISO 45001 (9.3 b)</p>
-        </div>
-        
-        <div class="card col-6">
-            <div class="card-title">3.1 CONTEXTO (DOFA SEPTIEMBRE 2025)</div>
-            <div class="dofa-item dofa-green">
-                <strong>FORTALEZAS:</strong> Liderazgo en Transformación Digital (uso de IA y automatización en HSEQ), Resiliencia operativa ante crisis, Sistema de gestión maduro y certificado.
-            </div>
-            <div class="dofa-item dofa-green">
-                <strong>OPORTUNIDADES:</strong> Crecimiento en incentivos para Transición Energética y ESG (gas/solar), Apertura de mercados regionales (Andina), Acceso a tecnologías de monitoreo remoto.
-            </div>
-            <div class="dofa-item dofa-red">
-                <strong>DEBILIDADES:</strong> Restricciones de flujo de caja para inversiones, Dependencia operativa de pozos maduros sin BCP documentado, Brechas en competencias digitales avanzadas.
-            </div>
-            <div class="dofa-item dofa-red">
-                <strong>AMENAZAS:</strong> Alta volatilidad macroeconómica (TRM, inflación), Riesgo recurrente de bloqueos sociales, Declinación natural de pozos y nuevas exigencias regulatorias ambientales.
-            </div>
-        </div>
-        
-        <div class="card col-12" style="border-left: 4px solid #16a34a;">
-            <div class="card-title" style="color:#16a34a;">
-                <i class="fa-solid fa-earth-americas"></i> DECLARACIÓN SOBRE CAMBIO CLIMÁTICO (Enmienda ISO 2024)
-            </div>
+        <div id="sec3" class="section-view">
             <div class="grid-container">
-                <div class="col-8">
-                    <p style="font-size:13px; color:#334155;">
-                        La Gerencia determina que el Cambio Climático <strong>ES PERTINENTE</strong> para el SGC/SGA/SGSST. No se aborda como un sistema separado, sino integrado a la estrategia de negocio:
-                    </p>
-                    <ul style="font-size:12px; margin-top:10px; padding-left:20px; line-height:1.6;">
-                        <li><strong>Pertinencia Operativa:</strong> Protección de activos en zonas inundables (Sinú 9).</li>
-                        <li><strong>Pertinencia Legal:</strong> Cumplimiento de metas de descarbonización y reportes a autoridades.</li>
-                        <li><strong>Pertinencia de Mercado:</strong> Alineación con la "Transición Energética" (Oportunidad DOFA).</li>
-                    </ul>
+                <div class="card col-12">
+                    <div class="card-title">3. ENTRADAS ESTRATÉGICAS: PLANIFICACIÓN Y CONTEXTO</div>
+                    <p style="font-size:12px; margin-bottom:15px; color:#64748b;"><strong>Referencia:</strong> ISO 9001 (9.3.2 b), ISO 14001 (9.3 b), ISO 45001 (9.3 b)</p>
                 </div>
-                <div class="col-4" style="text-align:center; display:flex; align-items:center; justify-content:center;">
-                    <div style="background:#f0fdf4; padding:15px; border-radius:8px;">
-                        <strong style="font-size:14px; color:#16a34a;">ESTADO: GESTIONADO</strong>
-                        <br><span style="font-size:11px; color:#64748b;">Ver Matriz de Riesgos y Plan de Emergencias</span>
+                
+                <div class="card col-6">
+                    <div class="card-title">3.1 CONTEXTO (DOFA SEPTIEMBRE 2025)</div>
+                    <div class="dofa-item dofa-green">
+                        <strong>FORTALEZAS:</strong> Liderazgo en Transformación Digital (uso de IA y automatización en HSEQ), Resiliencia operativa ante crisis, Sistema de gestión maduro y certificado.
+                    </div>
+                    <div class="dofa-item dofa-green">
+                        <strong>OPORTUNIDADES:</strong> Crecimiento en incentivos para Transición Energética y ESG (gas/solar), Apertura de mercados regionales (Andina), Acceso a tecnologías de monitoreo remoto.
+                    </div>
+                    <div class="dofa-item dofa-red">
+                        <strong>DEBILIDADES:</strong> Restricciones de flujo de caja para inversiones, Dependencia operativa de pozos maduros sin BCP documentado, Brechas en competencias digitales avanzadas.
+                    </div>
+                    <div class="dofa-item dofa-red">
+                        <strong>AMENAZAS:</strong> Alta volatilidad macroeconómica (TRM, inflación), Riesgo recurrente de bloqueos sociales, Declinación natural de pozos y nuevas exigencias regulatorias ambientales.
                     </div>
                 </div>
-            </div>
-        </div>
+                
+                <div class="card col-12" style="border-left: 4px solid #16a34a;">
+                    <div class="card-title" style="color:#16a34a;">
+                        <i class="fa-solid fa-earth-americas"></i> DECLARACIÓN SOBRE CAMBIO CLIMÁTICO (Enmienda ISO 2024)
+                    </div>
+                    <div class="grid-container">
+                        <div class="col-8">
+                            <p style="font-size:13px; color:#334155;">
+                                La Gerencia determina que el Cambio Climático <strong>ES PERTINENTE</strong> para el SGC/SGA/SGSST. No se aborda como un sistema separado, sino integrado a la estrategia de negocio:
+                            </p>
+                            <ul style="font-size:12px; margin-top:10px; padding-left:20px; line-height:1.6;">
+                                <li><strong>Pertinencia Operativa:</strong> Protección de activos en zonas inundables (Tales como Sinú 9 y la Planta Buenavista).</li>
+                                <li><strong>Pertinencia Legal:</strong> Cumplimiento de metas de descarbonización y reportes a autoridades.</li>
+                                <li><strong>Pertinencia de Mercado:</strong> Alineación con la "Transición Energética" (Oportunidad DOFA).</li>
+                            </ul>
+                        </div>
+                        <div class="col-4" style="text-align:center; display:flex; align-items:center; justify-content:center;">
+                            <div style="background:#f0fdf4; padding:15px; border-radius:8px;">
+                                <strong style="font-size:14px; color:#16a34a;">ESTADO: GESTIONADO</strong>
+                                <br><span style="font-size:11px; color:#64748b;">Ver Matriz de Riesgos y Plan de Emergencias</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="card col-6">
-    <div class="card-title">3.2 NECESIDADES Y EXPECTATIVAS PRIORIZADAS (ISO 4.2)</div>
-    
-    <p style="font-size:12px; margin-bottom:10px; color:#64748b;">
-        Asuntos materiales derivados de la Matriz de Partes Interesadas (Fuente: FOR-HSEQ- /Informe GRI ):
-    </p>
-    
-    <div style="background:#f0fdf4; padding:10px; border-left:3px solid var(--success); margin-bottom:8px;">
-        <strong style="font-size:11px; color:#14532d;">AMBIENTAL (Licencia Operativa)</strong>
-        <ul style="font-size:11px; margin-top:5px; padding-left:15px; margin-bottom:0; line-height:1.4;">
-            <li>Control de impactos (Ruido/Polvo) y atención a comunidades.</li>
-            <li>Cumplimiento estricto normatividad ANLA.</li>
-            <li>Gestión de residuos y economía circular.</li>
-        </ul>
-    </div>
+                    <div class="card-title">3.2 NECESIDADES Y EXPECTATIVAS PRIORIZADAS (ISO 4.2)</div>
+                    
+                    <p style="font-size:12px; margin-bottom:10px; color:#64748b;">
+                        Asuntos materiales derivados de la Matriz de Partes Interesadas (Fuente: FOR-HSEQ- /Informe GRI ):
+                    </p>
+                    
+                    <div style="background:#f0fdf4; padding:10px; border-left:3px solid var(--success); margin-bottom:8px;">
+                        <strong style="font-size:11px; color:#14532d;">AMBIENTAL (Licencia Operativa)</strong>
+                        <ul style="font-size:11px; margin-top:5px; padding-left:15px; margin-bottom:0; line-height:1.4;">
+                            <li>Control de impactos (Ruido/Polvo) y atención a comunidades.</li>
+                            <li>Cumplimiento estricto normatividad ANLA.</li>
+                            <li>Gestión de residuos y economía circular.</li>
+                        </ul>
+                    </div>
 
-    <div style="background:#eff6ff; padding:10px; border-left:3px solid var(--secondary); margin-bottom:8px;">
-        <strong style="font-size:11px; color:#1e3a8a;">SOCIAL (Laboral y DDHH)</strong>
-        <ul style="font-size:11px; margin-top:5px; padding-left:15px; margin-bottom:0; line-height:1.4;">
-            <li>Prevención de accidentes y recursos COPASST.</li>
-            <li>Clima laboral, salud mental y prevención de acoso.</li>
-            <li>Empleo local y relacionamiento vecinal.</li>
-        </ul>
-    </div>
+                    <div style="background:#eff6ff; padding:10px; border-left:3px solid var(--secondary); margin-bottom:8px;">
+                        <strong style="font-size:11px; color:#1e3a8a;">SOCIAL (Laboral y DDHH)</strong>
+                        <ul style="font-size:11px; margin-top:5px; padding-left:15px; margin-bottom:0; line-height:1.4;">
+                            <li>Prevención de accidentes y recursos COPASST.</li>
+                            <li>Clima laboral, salud mental y prevención de acoso.</li>
+                            <li>Empleo local y relacionamiento vecinal.</li>
+                        </ul>
+                    </div>
 
-    <div style="background:#fef9c3; padding:10px; border-left:3px solid var(--warning);">
-        <strong style="font-size:11px; color:#854d0e;">GOBERNANZA Y ECONÓMICO</strong>
-        <ul style="font-size:11px; margin-top:5px; padding-left:15px; margin-bottom:0; line-height:1.4;">
-            <li>Rentabilidad, transparencia y ética (Accionistas).</li>
-            <li>Solvencia y gestión de riesgos ESG (Bancos).</li>
-            <li>Cadena de suministro segura (Proveedores).</li>
-        </ul>
-    </div>
-</div>
+                    <div style="background:#fef9c3; padding:10px; border-left:3px solid var(--warning);">
+                        <strong style="font-size:11px; color:#854d0e;">GOBERNANZA Y ECONÓMICO</strong>
+                        <ul style="font-size:11px; margin-top:5px; padding-left:15px; margin-bottom:0; line-height:1.4;">
+                            <li>Rentabilidad, transparencia y ética (Accionistas).</li>
+                            <li>Solvencia y gestión de riesgos ESG (Bancos).</li>
+                            <li>Cadena de suministro segura (Proveedores).</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="card col-6">
                     <div class="card-title">3.3 GESTIÓN DE RIESGOS Y OPORTUNIDADES</div>
                     
@@ -734,20 +711,20 @@
                         </tbody>
                     </table>
 
-  <div class="grid-container" style="margin-top:20px;">
-    <div class="col-6">
-        <div class="card-title">Consumo de Agua (m³/mes) - Tendencia 2025</div>
-        <div style="height: 250px; position: relative;">
-            <canvas id="chartAgua"></canvas>
-        </div>
-    </div>
-    <div class="col-6">
-        <div class="card-title">Gestión de Residuos (Kg) - Comparativo 2024 vs 2025</div>
-        <div style="height: 250px; position: relative;">
-            <canvas id="chartResiduos"></canvas>
-        </div>
-    </div>
-</div>
+                    <div class="grid-container" style="margin-top:20px;">
+                        <div class="col-6">
+                            <div class="card-title">Consumo de Agua (m³/mes) - Tendencia 2025</div>
+                            <div style="height: 250px; position: relative;">
+                                <canvas id="chartAgua"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card-title">Gestión de Residuos (Kg) - Comparativo 2024 vs 2025</div>
+                            <div style="height: 250px; position: relative;">
+                                <canvas id="chartResiduos"></canvas>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="grid-container" style="margin-top:20px;">
                         <div class="col-4">
@@ -998,157 +975,158 @@
                     </table>
                 </div>
 
-<div class="card col-12">
-    <div class="card-title">4.7 CONSULTA Y PARTICIPACIÓN DE LOS TRABAJADORES</div>
-    <p style="font-size:12px; margin-bottom:15px; color:#64748b;">
-        <strong>Referencia:</strong> ISO 45001 Numerales 5.4 y 9.3.2 (e)
-    </p>
-    
-    <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">A. Mecanismos de Consulta y Participación</h4>
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Mecanismo</th>
-                <th>Frecuencia</th>
-                <th>Cumplimiento 2025</th>
-                <th>Principales Aportes y Resultados</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>COPASST</strong></td>
-                <td>Mensual</td>
-                <td><span class="tag tag-ok">100%</span></td>
-                <td>Se ejecutaron el 100% de las reuniones programadas. El comité participó activamente en la revisión de accidentes, inspecciones y validación de controles operacionales.</td>
-            </tr>
-            <tr>
-                <td><strong>Comité de Convivencia Laboral</strong></td>
-                <td>Trimestral</td>
-                <td><span class="tag tag-ok">100%</span></td>
-                <td>Se atendieron solicitudes de bienestar y se gestionó el clima laboral. No se reportaron casos de acoso laboral durante 2025.</td>
-            </tr>
-            <tr>
-                <td><strong>Tarjetas de Reporte (Actos/Condiciones Inseguras)</strong></td>
-                <td>Permanente</td>
-                <td>28 Reportes recibidos</td>
-                <td>Los trabajadores reportaron 28 condiciones/actos inseguros. Se cerró el 43% (12/28). <span class="tag tag-warn">OPORTUNIDAD:</span> Mejorar tiempo de respuesta y cierre.</td>
-            </tr>
-            <tr>
-                <td><strong>Encuestas y Solicitudes de Capacitación</strong></td>
-                <td>Según necesidad</td>
-                <td><span class="tag tag-ok">100% Atendidas</span></td>
-                <td>Se ejecutó el 100% de las solicitudes de capacitación y bienestar presentadas por los trabajadores.</td>
-            </tr>
-            <tr>
-                <td><strong>Participación en Inspecciones SST</strong></td>
-                <td>Según cronograma</td>
-                <td><span class="tag tag-ok">99% Ejecución</span></td>
-                <td>Los trabajadores participaron activamente en inspecciones de seguridad con un cumplimiento global del 99%.</td>
-            </tr>
-            <tr>
-                <td><strong>Simulacros de Emergencia</strong></td>
-                <td>Según Plan de Emergencias</td>
-                <td><span class="tag tag-ok">EFICAZ</span></td>
-                <td>Se validó la capacidad de respuesta en las 5 sedes operativas con participación activa del personal. Resultado: EFICAZ.</td>
-            </tr>
-        </tbody>
-    </table>
+                <div class="card col-12">
+                    <div class="card-title">4.7 CONSULTA Y PARTICIPACIÓN DE LOS TRABAJADORES</div>
+                    <p style="font-size:12px; margin-bottom:15px; color:#64748b;">
+                        <strong>Referencia:</strong> ISO 45001 Numerales 5.4 y 9.3.2 (e)
+                    </p>
+                    
+                    <h4 style="font-size:13px; margin-bottom:10px; color:#334155;">A. Mecanismos de Consulta y Participación</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Mecanismo</th>
+                                <th>Frecuencia</th>
+                                <th>Cumplimiento 2025</th>
+                                <th>Principales Aportes y Resultados</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>COPASST</strong></td>
+                                <td>Mensual</td>
+                                <td><span class="tag tag-ok">100%</span></td>
+                                <td>Se ejecutaron el 100% de las reuniones programadas. El comité participó activamente en la revisión de accidentes, inspecciones y validación de controles operacionales.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Comité de Convivencia Laboral</strong></td>
+                                <td>Trimestral</td>
+                                <td><span class="tag tag-ok">100%</span></td>
+                                <td>Se atendieron solicitudes de bienestar y se gestionó el clima laboral. No se reportaron casos de acoso laboral durante 2025.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tarjetas de Reporte (Actos/Condiciones Inseguras)</strong></td>
+                                <td>Permanente</td>
+                                <td>28 Reportes recibidos</td>
+                                <td>Los trabajadores reportaron 28 condiciones/actos inseguros. Se cerró el 43% (12/28). <span class="tag tag-warn">OPORTUNIDAD:</span> Mejorar tiempo de respuesta y cierre.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Encuestas y Solicitudes de Capacitación</strong></td>
+                                <td>Según necesidad</td>
+                                <td><span class="tag tag-ok">100% Atendidas</span></td>
+                                <td>Se ejecutó el 100% de las solicitudes de capacitación y bienestar presentadas por los trabajadores.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Participación en Inspecciones SST</strong></td>
+                                <td>Según cronograma</td>
+                                <td><span class="tag tag-ok">99% Ejecución</span></td>
+                                <td>Los trabajadores participaron activamente en inspecciones de seguridad con un cumplimiento global del 99%.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Simulacros de Emergencia</strong></td>
+                                <td>Según Plan de Emergencias</td>
+                                <td><span class="tag tag-ok">EFICAZ</span></td>
+                                <td>Se validó la capacidad de respuesta en las 5 sedes operativas con participación activa del personal. Resultado: EFICAZ.</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">B. Indicadores de Participación 2025</h4>
-    <div class="grid-container">
-        <div class="col-3">
-            <div class="kpi-box" style="background:#f0fdf4; border-radius:8px; padding:15px;">
-                <div class="kpi-sub">REUNIONES COPASST</div>
-                <div class="kpi-val" style="color:var(--success); font-size:28px;">12/12</div>
-                <div class="kpi-sub">100% Cumplimiento</div>
+                    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">B. Indicadores de Participación 2025</h4>
+                    <div class="grid-container">
+                        <div class="col-3">
+                            <div class="kpi-box" style="background:#f0fdf4; border-radius:8px; padding:15px;">
+                                <div class="kpi-sub">REUNIONES COPASST</div>
+                                <div class="kpi-val" style="color:var(--success); font-size:28px;">12/12</div>
+                                <div class="kpi-sub">100% Cumplimiento</div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="kpi-box" style="background:#eff6ff; border-radius:8px; padding:15px;">
+                                <div class="kpi-sub">REPORTES TRABAJADORES</div>
+                                <div class="kpi-val" style="color:var(--secondary); font-size:28px;">28</div>
+                                <div class="kpi-sub">Tarjetas actos/condiciones</div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="kpi-box" style="background:#fef9c3; border-radius:8px; padding:15px;">
+                                <div class="kpi-sub">CIERRE DE REPORTES</div>
+                                <div class="kpi-val" style="color:var(--warning); font-size:28px;">43%</div>
+                                <div class="kpi-sub">12 de 28 cerrados</div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="kpi-box" style="background:#f8fafc; border-radius:8px; padding:15px;">
+                                <div class="kpi-sub">INSPECCIONES SST</div>
+                                <div class="kpi-val" style="color:var(--success); font-size:28px;">99%</div>
+                                <div class="kpi-sub">Ejecución global</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">C. Principales Aportes de los Trabajadores en 2025</h4>
+                    <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:15px;">
+                        <div style="background:#f0fdf4; padding:12px; border-left:3px solid var(--success); border-radius:4px; font-size:12px;">
+                            <strong style="color:#14532d;">✓ IDENTIFICACIÓN DE PELIGROS:</strong>
+                            <p style="margin-top:5px;">28 reportes de condiciones y actos inseguros identificados por los trabajadores en campo, permitiendo acciones correctivas oportunas.</p>
+                        </div>
+                        <div style="background:#eff6ff; padding:12px; border-left:3px solid var(--secondary); border-radius:4px; font-size:12px;">
+                            <strong style="color:#1e3a8a;">✓ MEJORA DE PROCEDIMIENTOS:</strong>
+                            <p style="margin-top:5px;">Aportes del COPASST implementados en la actualización de procedimientos de trabajo seguro y controles operacionales.</p>
+                        </div>
+                        <div style="background:#fef9c3; padding:12px; border-left:3px solid var(--warning); border-radius:4px; font-size:12px;">
+                            <strong style="color:#854d0e;">✓ CAPACITACIÓN:</strong>
+                            <p style="margin-top:5px;">Solicitudes de capacitación técnica atendidas al 100%, mejorando competencias del personal operativo.</p>
+                        </div>
+                        <div style="background:#f8fafc; padding:12px; border-left:3px solid #64748b; border-radius:4px; font-size:12px;">
+                            <strong style="color:#334155;">✓ CULTURA DE PREVENCIÓN:</strong>
+                            <p style="margin-top:5px;">Participación activa en simulacros de emergencia validando la eficacia de los planes de respuesta en las 5 sedes.</p>
+                        </div>
+                    </div>
+
+                    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">D. Acciones Implementadas por Consulta</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Origen de la Consulta</th>
+                                <th>Acción Implementada</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Solicitud COPASST</strong></td>
+                                <td>Mejoras en condiciones locativas y actualización de matriz de peligros sin cambios críticos.</td>
+                                <td><span class="tag tag-ok">IMPLEMENTADO</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Reportes Trabajadores (Tarjetas)</strong></td>
+                                <td>Gestión inmediata de 8 reportes en todas las sedes (100% cierre).</td>
+                                <td><span class="tag tag-ok">CERRADOS</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Encuestas de Bienestar</strong></td>
+                                <td>Atención a solicitudes de bienestar y capacitación (100% ejecución).</td>
+                                <td><span class="tag tag-ok">EJECUTADO</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Retroalimentación Post-Simulacros</strong></td>
+                                <td>Mejoras en planes de emergencia y equipos de respuesta.</td>
+                                <td><span class="tag tag-warn">EN PROCESO</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="background:#eff6ff; padding:15px; margin-top:15px; border-left:4px solid var(--secondary); border-radius:4px;">
+                        <h4 style="font-size:13px; margin-bottom:5px; color:#1e3a8a;">✓ CONCLUSIÓN CONSULTA Y PARTICIPACIÓN 2025</h4>
+                        <p style="font-size:12px; line-height:1.6;">
+                            Los mecanismos de consulta y participación operan de manera <strong>EFICAZ</strong>. Se evidencia compromiso activo de los trabajadores en la identificación de peligros, reporte de condiciones inseguras y participación en comités legales (COPASST, Comité de Convivencia). Las sugerencias y reportes han generado mejoras tangibles en las condiciones de trabajo.<br><br>
+                            <strong>Oportunidad de Mejora 2026:</strong> Acelerar el tiempo de respuesta y cierre de tarjetas de reporte (actualmente 43% - meta: >80%). Se requiere fortalecer el seguimiento y comunicación de acciones tomadas a partir de los reportes de los trabajadores.
+                        </p>
+                    </div>
+                </div> 
             </div>
         </div>
-        <div class="col-3">
-            <div class="kpi-box" style="background:#eff6ff; border-radius:8px; padding:15px;">
-                <div class="kpi-sub">REPORTES TRABAJADORES</div>
-                <div class="kpi-val" style="color:var(--secondary); font-size:28px;">28</div>
-                <div class="kpi-sub">Tarjetas actos/condiciones</div>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="kpi-box" style="background:#fef9c3; border-radius:8px; padding:15px;">
-                <div class="kpi-sub">CIERRE DE REPORTES</div>
-                <div class="kpi-val" style="color:var(--warning); font-size:28px;">43%</div>
-                <div class="kpi-sub">12 de 28 cerrados</div>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="kpi-box" style="background:#f8fafc; border-radius:8px; padding:15px;">
-                <div class="kpi-sub">INSPECCIONES SST</div>
-                <div class="kpi-val" style="color:var(--success); font-size:28px;">99%</div>
-                <div class="kpi-sub">Ejecución global</div>
-            </div>
-        </div>
-    </div>
 
-    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">C. Principales Aportes de los Trabajadores en 2025</h4>
-    <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:15px;">
-        <div style="background:#f0fdf4; padding:12px; border-left:3px solid var(--success); border-radius:4px; font-size:12px;">
-            <strong style="color:#14532d;">✓ IDENTIFICACIÓN DE PELIGROS:</strong>
-            <p style="margin-top:5px;">28 reportes de condiciones y actos inseguros identificados por los trabajadores en campo, permitiendo acciones correctivas oportunas.</p>
-        </div>
-        <div style="background:#eff6ff; padding:12px; border-left:3px solid var(--secondary); border-radius:4px; font-size:12px;">
-            <strong style="color:#1e3a8a;">✓ MEJORA DE PROCEDIMIENTOS:</strong>
-            <p style="margin-top:5px;">Aportes del COPASST implementados en la actualización de procedimientos de trabajo seguro y controles operacionales.</p>
-        </div>
-        <div style="background:#fef9c3; padding:12px; border-left:3px solid var(--warning); border-radius:4px; font-size:12px;">
-            <strong style="color:#854d0e;">✓ CAPACITACIÓN:</strong>
-            <p style="margin-top:5px;">Solicitudes de capacitación técnica atendidas al 100%, mejorando competencias del personal operativo.</p>
-        </div>
-        <div style="background:#f8fafc; padding:12px; border-left:3px solid #64748b; border-radius:4px; font-size:12px;">
-            <strong style="color:#334155;">✓ CULTURA DE PREVENCIÓN:</strong>
-            <p style="margin-top:5px;">Participación activa en simulacros de emergencia validando la eficacia de los planes de respuesta en las 5 sedes.</p>
-        </div>
-    </div>
-
-    <h4 style="font-size:13px; margin:20px 0 10px 0; color:#334155;">D. Acciones Implementadas por Consulta</h4>
-    <table class="data-table">
-        <thead>
-            <tr>
-                <th>Origen de la Consulta</th>
-                <th>Acción Implementada</th>
-                <th>Estado</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Solicitud COPASST</strong></td>
-                <td>Mejoras en condiciones locativas y actualización de matriz de peligros sin cambios críticos.</td>
-                <td><span class="tag tag-ok">IMPLEMENTADO</span></td>
-            </tr>
-            <tr>
-                <td><strong>Reportes Trabajadores (Tarjetas)</strong></td>
-                <td>Gestión inmediata de 8 reportes en todas las sedes (100% cierre).</td>
-                <td><span class="tag tag-ok">CERRADOS</span></td>
-            </tr>
-            <tr>
-                <td><strong>Encuestas de Bienestar</strong></td>
-                <td>Atención a solicitudes de bienestar y capacitación (100% ejecución).</td>
-                <td><span class="tag tag-ok">EJECUTADO</span></td>
-            </tr>
-            <tr>
-                <td><strong>Retroalimentación Post-Simulacros</strong></td>
-                <td>Mejoras en planes de emergencia y equipos de respuesta.</td>
-                <td><span class="tag tag-warn">EN PROCESO</span></td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div style="background:#eff6ff; padding:15px; margin-top:15px; border-left:4px solid var(--secondary); border-radius:4px;">
-        <h4 style="font-size:13px; margin-bottom:5px; color:#1e3a8a;">✓ CONCLUSIÓN CONSULTA Y PARTICIPACIÓN 2025</h4>
-        <p style="font-size:12px; line-height:1.6;">
-            Los mecanismos de consulta y participación operan de manera <strong>EFICAZ</strong>. Se evidencia compromiso activo de los trabajadores en la identificación de peligros, reporte de condiciones inseguras y participación en comités legales (COPASST, Comité de Convivencia). Las sugerencias y reportes han generado mejoras tangibles en las condiciones de trabajo.<br><br>
-            <strong>Oportunidad de Mejora 2026:</strong> Acelerar el tiempo de respuesta y cierre de tarjetas de reporte (actualmente 43% - meta: >80%). Se requiere fortalecer el seguimiento y comunicación de acciones tomadas a partir de los reportes de los trabajadores.
-        </p>
-    </div>
-</div> 
-</div>
-</div> 
         <div id="sec5" class="section-view">
             <div class="grid-container">
                 <div class="card col-12">
@@ -1620,7 +1598,7 @@
                                 display: true,
                                 position: 'top',
                                 labels: { font: { size: 11 } }
-                            }
+                            },
                         },
                         scales: {
                             y: {
